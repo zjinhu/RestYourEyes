@@ -12,10 +12,10 @@
 		8C2600632C11C7C600AF1FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2600622C11C7C600AF1FE9 /* Assets.xcassets */; };
 		8C2600662C11C7C600AF1FE9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2600652C11C7C600AF1FE9 /* Preview Assets.xcassets */; };
 		8C26006E2C129E5F00AF1FE9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26006D2C129E5F00AF1FE9 /* HomeView.swift */; };
-		8C2600702C12A08E00AF1FE9 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26006F2C12A08E00AF1FE9 /* ScreenView.swift */; };
-		8C2600722C12AE9E00AF1FE9 /* ScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2600712C12AE9E00AF1FE9 /* ScreenController.swift */; };
 		8CBF2DB32C13029A00EA413F /* ContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBF2DB22C13029A00EA413F /* ContentController.swift */; };
 		8CBF2DB52C130D0900EA413F /* ControlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBF2DB42C130D0900EA413F /* ControlModel.swift */; };
+		8CBF2DBB2C13187300EA413F /* ScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBF2DB92C13187300EA413F /* ScreenController.swift */; };
+		8CBF2DBC2C13187300EA413F /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBF2DBA2C13187300EA413F /* ScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +26,10 @@
 		8C2600652C11C7C600AF1FE9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8C2600672C11C7C600AF1FE9 /* Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mac.entitlements; sourceTree = "<group>"; };
 		8C26006D2C129E5F00AF1FE9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		8C26006F2C12A08E00AF1FE9 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
-		8C2600712C12AE9E00AF1FE9 /* ScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenController.swift; sourceTree = "<group>"; };
 		8CBF2DB22C13029A00EA413F /* ContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentController.swift; sourceTree = "<group>"; };
 		8CBF2DB42C130D0900EA413F /* ControlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlModel.swift; sourceTree = "<group>"; };
+		8CBF2DB92C13187300EA413F /* ScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenController.swift; path = "屏幕遮盖/ScreenController.swift"; sourceTree = "<group>"; };
+		8CBF2DBA2C13187300EA413F /* ScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenView.swift; path = "屏幕遮盖/ScreenView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +93,8 @@
 		8CBF2DB72C13139800EA413F /* 屏幕遮盖 */ = {
 			isa = PBXGroup;
 			children = (
-				8C2600712C12AE9E00AF1FE9 /* ScreenController.swift */,
-				8C26006F2C12A08E00AF1FE9 /* ScreenView.swift */,
+				8CBF2DB92C13187300EA413F /* ScreenController.swift */,
+				8CBF2DBA2C13187300EA413F /* ScreenView.swift */,
 			);
 			name = "屏幕遮盖";
 			sourceTree = "<group>";
@@ -180,11 +180,11 @@
 			files = (
 				8C26006E2C129E5F00AF1FE9 /* HomeView.swift in Sources */,
 				8CBF2DB32C13029A00EA413F /* ContentController.swift in Sources */,
-				8C2600722C12AE9E00AF1FE9 /* ScreenController.swift in Sources */,
 				8C2600612C11C7C500AF1FE9 /* ContentView.swift in Sources */,
-				8C2600702C12A08E00AF1FE9 /* ScreenView.swift in Sources */,
 				8CBF2DB52C130D0900EA413F /* ControlModel.swift in Sources */,
 				8C26005F2C11C7C500AF1FE9 /* MacApp.swift in Sources */,
+				8CBF2DBB2C13187300EA413F /* ScreenController.swift in Sources */,
+				8CBF2DBC2C13187300EA413F /* ScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

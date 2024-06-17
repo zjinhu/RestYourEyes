@@ -11,37 +11,66 @@ struct HomeView: View {
     @EnvironmentObject var controlModel: ControlModel
     @State var screenController: ScreenController?
     @State var contentController: ContentController?
+
+    @State var showFullScreen = false
+    @State var showContent = false
+    
+    @State var timeRemaining = 0 // 20分钟倒计时，以秒为单位
+    @State var timer: Timer?
+    
+    
+    func startTimer() {
+        stopTimer() // 先停止已有的计时器
+
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            if self.timeRemaining > 0 {
+                self.timeRemaining -= 1
+            } else {
+                // 计时器完成，重新开始
+                self.timeRemaining = self.controlModel.countTime
+                self.showFullScreen.toggle()
+            }
+        }
+    }
+
+    // 停止计时器的方法
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+        timeRemaining = controlModel.countTime
+    }
+    
     
     var body: some View {
         VStack{
-            Text("Time Remaining: \(formatTime(seconds: controlModel.timeRemaining))")
+            Text("Time Remaining: \(formatTime(seconds: timeRemaining))")
                 .font(.largeTitle)
                 .padding()
             
             Button("FullScreen") {
-                controlModel.showFullScreen.toggle()
+                showFullScreen.toggle()
             }
             
             Button("Content") {
-                controlModel.showContent.toggle()
+                showContent.toggle()
             }
             
             HStack {
-                Button(action: controlModel.startTimer) {
+                Button(action: startTimer) {
                     Text("Start Timer")
                 }
                 .padding()
                 
-                Button(action: controlModel.stopTimer) {
+                Button(action: stopTimer) {
                     Text("Stop Timer")
                 }
                 .padding()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .onChange(of: controlModel.showFullScreen) {
-            if controlModel.showFullScreen {
-                let screenView = ScreenView(isPresented: $controlModel.showFullScreen)
+        .onChange(of: showFullScreen) {
+            if showFullScreen {
+                let screenView = ScreenView(isPresented: $showFullScreen)
                 let controller = ScreenController(rootView: AnyView(screenView))
                 controller.showFullScreen()
                 screenController = controller
@@ -49,10 +78,10 @@ struct HomeView: View {
                 screenController?.closeFullScreen()
             }
         }
-        .onChange(of: controlModel.showContent) {
-            if controlModel.showContent {
+        .onChange(of: showContent) {
+            if showContent {
                 let view = ContentView()
-                let controller = ContentController(rootView: AnyView(view), isPresented: $controlModel.showContent)
+                let controller = ContentController(rootView: AnyView(view), isPresented: $showContent)
                 controller.showView()
                 contentController = controller
             } else {
