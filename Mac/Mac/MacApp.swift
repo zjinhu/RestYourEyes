@@ -10,24 +10,27 @@ import SwiftUI
 @main
 struct MacApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
- 
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear{
+                    if let window = NSApplication.shared.windows.first {
+                        window.close()
+                    }
+                }
         }
-        .windowStyle(.hiddenTitleBar) 
+        .windowStyle(.hiddenTitleBar)
     }
 }
 
 private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     var statusBarItem: NSStatusItem!
     var popover: NSPopover!
-    
-    @ObservedObject var controlModel = ControlModel()
  
     func applicationDidFinishLaunching(_ notification: Notification) {
- 
-        let contentView = HomeView().environmentObject(controlModel)
+        
+        let contentView = HomeView() 
         
         // Create the popover
         let popover = NSPopover()
@@ -35,7 +38,7 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
         popover.behavior = .transient
         popover.contentViewController = NSHostingController(rootView: contentView)
         self.popover = popover
- 
+        
         self.statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
         
         if let button = self.statusBarItem.button {
@@ -54,5 +57,5 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
             }
         }
     }
- 
+    
 }

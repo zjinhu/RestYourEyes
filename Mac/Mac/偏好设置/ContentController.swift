@@ -19,6 +19,7 @@ class ContentController: NSWindowController, NSWindowDelegate{
             backing: .buffered,
             defer: false
         )
+        window.title = "My Application Name"
         window.level = .floating
         window.collectionBehavior = [.canJoinAllSpaces]
         self.init(window: window)

@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var controlModel: ControlModel
+    
+    @AppStorage("workTime") private var workTime: Int = 20
+    @AppStorage("restTime") private var restTime: Int = 20
+    
     @State var screenController: ScreenController?
     @State var contentController: ContentController?
 
@@ -18,7 +21,6 @@ struct HomeView: View {
     @State var timeRemaining = 0 // 20分钟倒计时，以秒为单位
     @State var timer: Timer?
     
-    
     func startTimer() {
         stopTimer() // 先停止已有的计时器
 
@@ -27,8 +29,9 @@ struct HomeView: View {
                 self.timeRemaining -= 1
             } else {
                 // 计时器完成，重新开始
-                self.timeRemaining = self.controlModel.countTime
+                self.timeRemaining = self.workTime * 60
                 self.showFullScreen.toggle()
+                self.resumeTimerAfterPauseTime()
             }
         }
     }
@@ -37,38 +40,59 @@ struct HomeView: View {
     func stopTimer() {
         timer?.invalidate()
         timer = nil
-        timeRemaining = controlModel.countTime
+        timeRemaining = workTime * 60
+    }
+    
+    func resumeTimerAfterPauseTime() {
+        let delay = DispatchTime.now() + TimeInterval(restTime)
+        DispatchQueue.main.asyncAfter(deadline: delay) {
+            self.showFullScreen.toggle()
+            self.startTimer()
+        }
     }
     
     
+    @State private var sort: Int = 0
     var body: some View {
         VStack{
+            HStack{
+                Button("设置") {
+                    showContent.toggle()
+                }
+                
+                Spacer()
+                
+                Button("退出") {
+                    NSApp.terminate(nil)
+                }
+            }
+            .padding()
+            
             Text("Time Remaining: \(formatTime(seconds: timeRemaining))")
                 .font(.largeTitle)
                 .padding()
             
-            Button("FullScreen") {
-                showFullScreen.toggle()
-            }
+            Spacer()
             
-            Button("Content") {
-                showContent.toggle()
+            Button(action: startTimer) {
+                Text("Start Timer")
             }
             
             HStack {
-                Button(action: startTimer) {
-                    Text("Start Timer")
+
+                Button("休息一下") {
+                    showFullScreen.toggle()
                 }
-                .padding()
+                
                 
                 Button(action: stopTimer) {
-                    Text("Stop Timer")
+                    Text("重置计划")
                 }
-                .padding()
             }
+            .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .onChange(of: showFullScreen) {
+        .onChange(of: showFullScreen) { showFullScreen in
             if showFullScreen {
                 let screenView = ScreenView(isPresented: $showFullScreen)
                 let controller = ScreenController(rootView: AnyView(screenView))
@@ -78,7 +102,7 @@ struct HomeView: View {
                 screenController?.closeFullScreen()
             }
         }
-        .onChange(of: showContent) {
+        .onChange(of: showContent) { showFullScreen in
             if showContent {
                 let view = ContentView()
                 let controller = ContentController(rootView: AnyView(view), isPresented: $showContent)
@@ -97,6 +121,7 @@ struct HomeView: View {
         let seconds = seconds % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
+
 }
 
 #Preview {
