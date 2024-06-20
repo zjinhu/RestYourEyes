@@ -10,6 +10,11 @@ import ServiceManagement
 import Combine
 struct SettingView: View {
     @State private var shouldStartAtLogin: Bool = false
+    
+    @AppStorage("workTime") private var workTime: Int = 20
+    @AppStorage("restTime") private var restTime: Int = 20
+    @AppStorage("canJump") private var canJump: Bool = true
+    
     var body: some View {
         List {
             Section {
@@ -18,7 +23,30 @@ struct SettingView: View {
                     .toggleStyle(SwitchToggleStyle(tint: .red))
                 
             } header: {
-                Text("qidong")
+                Text("登录项")
+            }
+            
+            Section {
+                
+                Stepper(value: $workTime, in: 1...60, step: 1) {
+                    Text("每次工作时长 \(workTime)")
+                }
+                
+                Stepper(value: $restTime, in: 1...60, step: 1) {
+                    Text("每次休息时长 \(restTime)")
+                }
+                
+            } header: {
+                Text("休息规则")
+            }
+            
+            Section {
+                
+                Toggle("允许跳过", isOn: $canJump)
+                    .toggleStyle(SwitchToggleStyle(tint: .red))
+                
+            } header: {
+                Text("显示规则")
             }
 
         }

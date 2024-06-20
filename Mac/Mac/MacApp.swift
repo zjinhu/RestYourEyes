@@ -13,7 +13,7 @@ struct MacApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView() 
                 .onAppear{
                     if let window = NSApplication.shared.windows.first {
                         window.close()

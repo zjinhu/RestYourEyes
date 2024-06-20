@@ -10,11 +10,15 @@ import SwiftUI
 struct ScreenView: View {
     @Binding var isPresented: Bool
     @State private var isVisible = false
+    @AppStorage("canJump") private var canJump: Bool = true
+    
     var body: some View {
         VStack {
             Text("This is a full screen cover")
-            Button("Dismiss") {
-                isPresented = false
+            if canJump{
+                Button("Dismiss") {
+                    isPresented = false
+                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

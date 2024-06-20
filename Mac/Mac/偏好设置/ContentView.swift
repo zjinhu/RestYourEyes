@@ -12,17 +12,13 @@ struct ContentView: View {
     
     let tabItems = [
         TabModel(title: "设置", iconName: "gear"),
-        TabModel(title: "计划", iconName: "slider.horizontal.3"),
         TabModel(title: "主题", iconName: "paintpalette"),
-        TabModel(title: "音效", iconName: "music.quarternote.3"),
         TabModel(title: "关于", iconName: "exclamationmark.circle")
     ]
     
     let tabViews: [AnyView] = [
         AnyView(SettingView()),
-        AnyView(TimePlanView()),
         AnyView(ThemeView()),
-        AnyView(SoundView()),
         AnyView(AboutView())
     ]
     
@@ -53,8 +49,8 @@ struct ContentView: View {
             tabViews[selectIndex]
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .frame(minWidth: 400, minHeight: 300)
-        .frame(maxWidth: 800, maxHeight: 600)
+        .frame(minWidth: 400, minHeight: 500)
+        .frame(maxWidth: 600, maxHeight: 600)
         
     }
 }
