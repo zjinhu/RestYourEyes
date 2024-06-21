@@ -49,8 +49,8 @@ struct ContentView: View {
             tabViews[selectIndex]
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .frame(minWidth: 400, minHeight: 500)
-        .frame(maxWidth: 600, maxHeight: 600)
+//        .frame(minWidth: 400, minHeight: 500)
+//        .frame(maxWidth: 600, maxHeight: 600)
         
     }
 }

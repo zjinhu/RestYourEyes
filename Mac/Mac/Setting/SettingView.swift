@@ -6,59 +6,74 @@
 //
 
 import SwiftUI
-import ServiceManagement
+import ServiceManagement 
 import Combine
 struct SettingView: View {
-    @State private var shouldStartAtLogin: Bool = false
+ 
+    @State var launchAtLogin: Bool
     
     @AppStorage("workTime") private var workTime: Int = 20
     @AppStorage("restTime") private var restTime: Int = 20
     @AppStorage("canJump") private var canJump: Bool = true
     
+    init() {
+            self.launchAtLogin = SMAppService.mainApp.status == .enabled
+        }
+    
     var body: some View {
         List {
             Section {
                 
-                Toggle("Show welcome message", isOn: $shouldStartAtLogin)
+                Toggle("LaunchAuto", isOn: $launchAtLogin)
                     .toggleStyle(SwitchToggleStyle(tint: .red))
                 
             } header: {
-                Text("登录项")
+                Text("LaunchHeader")
             }
             
             Section {
                 
                 Stepper(value: $workTime, in: 1...60, step: 1) {
-                    Text("每次工作时长 \(workTime)")
+                    Text("WorkTime \(workTime)")
                 }
                 
                 Stepper(value: $restTime, in: 1...60, step: 1) {
-                    Text("每次休息时长 \(restTime)")
+                    Text("RestTime \(restTime)")
                 }
                 
             } header: {
-                Text("休息规则")
+                Text("Restplan")
             }
             
             Section {
                 
-                Toggle("允许跳过", isOn: $canJump)
+                Toggle("Allow Skip", isOn: $canJump)
                     .toggleStyle(SwitchToggleStyle(tint: .red))
                 
             } header: {
-                Text("显示规则")
+                Text("Display Rules")
             }
 
         }
-        .onChange(of: shouldStartAtLogin) { newValue in
+        .onChange(of: launchAtLogin) { newValue in
             setLaunchAtStartup(newValue)
         }
 
     }
     
     func setLaunchAtStartup(_ shouldStart: Bool) {
-        let appBundleIdentifier = "com.yourcompany.yourapp.LauncherApplication"
-        SMLoginItemSetEnabled(appBundleIdentifier as CFString, shouldStart)
+        do {
+            if shouldStart {
+                try SMAppService.mainApp.register()
+            } else {
+                try SMAppService.mainApp.unregister()
+            }
+        } catch {
+            Swift.print(error.localizedDescription)
+        }
+        if shouldStart != (SMAppService.mainApp.status == .enabled) {
+            launchAtLogin = shouldStart
+        }
     }
 }
 

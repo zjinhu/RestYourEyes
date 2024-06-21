@@ -13,14 +13,17 @@ struct MacApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView() 
-                .onAppear{
-                    if let window = NSApplication.shared.windows.first {
-                        window.close()
-                    }
-                }
+            ContentView()
+//                .onAppear{
+//                    if let window = NSApplication.shared.windows.first {
+//                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+//                            // 延时关闭窗口
+//                            window.close()
+//                        }
+//                    }
+//                }
         }
-        .windowStyle(.hiddenTitleBar)
+//        .windowStyle(.hiddenTitleBar)
     }
 }
 
@@ -29,8 +32,10 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
     var popover: NSPopover!
  
     func applicationDidFinishLaunching(_ notification: Notification) {
+        ///设置不启动主窗口
+        NSApplication.shared.windows.forEach { $0.close() }
         
-        let contentView = HomeView() 
+        let contentView = HomeView()
         
         // Create the popover
         let popover = NSPopover()

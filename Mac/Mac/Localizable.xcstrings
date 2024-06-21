@@ -1,0 +1,140 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Allow Skip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "允许跳过"
+          }
+        }
+      }
+    },
+    "Dismiss" : {
+
+    },
+    "Display Rules" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示规则"
+          }
+        }
+      }
+    },
+    "Hello, World!" : {
+
+    },
+    "LaunchAuto" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Boot up"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开机自启动"
+          }
+        }
+      }
+    },
+    "LaunchHeader" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login Items"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "登录项"
+          }
+        }
+      }
+    },
+    "Restplan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rest plan"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "休息计划"
+          }
+        }
+      }
+    },
+    "RestTime %lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Each rest duration %lld seconds"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "每次休息时长 %lld 秒"
+          }
+        }
+      }
+    },
+    "Start Timer" : {
+
+    },
+    "This is a full screen cover" : {
+
+    },
+    "Time Remaining: %@" : {
+
+    },
+    "WorkTime %lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Each working duration %lld minutes"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每次工作时长 %lld 分钟"
+          }
+        }
+      }
+    },
+    "休息一下" : {
+
+    },
+    "设置" : {
+
+    },
+    "退出" : {
+
+    },
+    "重置计划" : {
+
+    }
+  },
+  "version" : "1.0"
+}

@@ -15,6 +15,7 @@
 		8C8249882C24058F004F1FE2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249872C24058F004F1FE2 /* SettingView.swift */; };
 		8C82498C2C2405B5004F1FE2 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82498B2C2405B5004F1FE2 /* ThemeView.swift */; };
 		8C8249902C2405CD004F1FE2 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82498F2C2405CD004F1FE2 /* AboutView.swift */; };
+		8C82499F2C253935004F1FE2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8C82499E2C253935004F1FE2 /* Localizable.xcstrings */; };
 		8CBF2DB32C13029A00EA413F /* ContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBF2DB22C13029A00EA413F /* ContentController.swift */; };
 		8CBF2DBB2C13187300EA413F /* ScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBF2DB92C13187300EA413F /* ScreenController.swift */; };
 		8CBF2DBC2C13187300EA413F /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBF2DBA2C13187300EA413F /* ScreenView.swift */; };
@@ -31,6 +32,8 @@
 		8C8249872C24058F004F1FE2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		8C82498B2C2405B5004F1FE2 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		8C82498F2C2405CD004F1FE2 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		8C82499E2C253935004F1FE2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		8C8249A02C254E45004F1FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8CBF2DB22C13029A00EA413F /* ContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentController.swift; sourceTree = "<group>"; };
 		8CBF2DB92C13187300EA413F /* ScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenController.swift; path = "屏幕遮盖/ScreenController.swift"; sourceTree = "<group>"; };
 		8CBF2DBA2C13187300EA413F /* ScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenView.swift; path = "屏幕遮盖/ScreenView.swift"; sourceTree = "<group>"; };
@@ -66,11 +69,13 @@
 		8C26005D2C11C7C500AF1FE9 /* Mac */ = {
 			isa = PBXGroup;
 			children = (
+				8C8249A02C254E45004F1FE2 /* Info.plist */,
 				8C26005E2C11C7C500AF1FE9 /* MacApp.swift */,
-				8C8249862C240513004F1FE2 /* 设置页面 */,
-				8CBF2DB82C1313BC00EA413F /* 菜单栏 */,
-				8CBF2DB62C13137A00EA413F /* 偏好设置 */,
-				8CBF2DB72C13139800EA413F /* 屏幕遮盖 */,
+				8C82499E2C253935004F1FE2 /* Localizable.xcstrings */,
+				8C8249862C240513004F1FE2 /* Setting */,
+				8CBF2DB82C1313BC00EA413F /* PopMenu */,
+				8CBF2DB62C13137A00EA413F /* Home */,
+				8CBF2DB72C13139800EA413F /* Screen */,
 				8C2600622C11C7C600AF1FE9 /* Assets.xcassets */,
 				8C2600672C11C7C600AF1FE9 /* Mac.entitlements */,
 				8C2600642C11C7C600AF1FE9 /* Preview Content */,
@@ -86,40 +91,40 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		8C8249862C240513004F1FE2 /* 设置页面 */ = {
+		8C8249862C240513004F1FE2 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				8C8249872C24058F004F1FE2 /* SettingView.swift */,
 				8C82498B2C2405B5004F1FE2 /* ThemeView.swift */,
 				8C82498F2C2405CD004F1FE2 /* AboutView.swift */,
 			);
-			path = "设置页面";
+			path = Setting;
 			sourceTree = "<group>";
 		};
-		8CBF2DB62C13137A00EA413F /* 偏好设置 */ = {
+		8CBF2DB62C13137A00EA413F /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				8CBF2DB22C13029A00EA413F /* ContentController.swift */,
 				8C2600602C11C7C500AF1FE9 /* ContentView.swift */,
 			);
-			path = "偏好设置";
+			path = Home;
 			sourceTree = "<group>";
 		};
-		8CBF2DB72C13139800EA413F /* 屏幕遮盖 */ = {
+		8CBF2DB72C13139800EA413F /* Screen */ = {
 			isa = PBXGroup;
 			children = (
 				8CBF2DB92C13187300EA413F /* ScreenController.swift */,
 				8CBF2DBA2C13187300EA413F /* ScreenView.swift */,
 			);
-			name = "屏幕遮盖";
+			name = Screen;
 			sourceTree = "<group>";
 		};
-		8CBF2DB82C1313BC00EA413F /* 菜单栏 */ = {
+		8CBF2DB82C1313BC00EA413F /* PopMenu */ = {
 			isa = PBXGroup;
 			children = (
 				8C26006D2C129E5F00AF1FE9 /* HomeView.swift */,
 			);
-			path = "菜单栏";
+			path = PopMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +169,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 8C2600522C11C7C500AF1FE9;
 			productRefGroup = 8C26005C2C11C7C500AF1FE9 /* Products */;
@@ -182,6 +188,7 @@
 			files = (
 				8C2600662C11C7C600AF1FE9 /* Preview Assets.xcassets in Resources */,
 				8C2600632C11C7C600AF1FE9 /* Assets.xcassets in Resources */,
+				8C82499F2C253935004F1FE2 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +267,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -317,7 +324,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -339,14 +346,16 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mac/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RestYourEyes;
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = con.hu.Mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,14 +378,16 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mac/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RestYourEyes;
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = con.hu.Mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
