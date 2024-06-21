@@ -13,17 +13,9 @@ struct MacApp: App {
     
     var body: some Scene {
         WindowGroup {
+            ///可以设置成EmptyView()
             ContentView()
-//                .onAppear{
-//                    if let window = NSApplication.shared.windows.first {
-//                        DispatchQueue.main.asyncAfter(deadline: .now()) {
-//                            // 延时关闭窗口
-//                            window.close()
-//                        }
-//                    }
-//                }
         }
-//        .windowStyle(.hiddenTitleBar)
     }
 }
 

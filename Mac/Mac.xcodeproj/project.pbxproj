@@ -16,6 +16,8 @@
 		8C82498C2C2405B5004F1FE2 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82498B2C2405B5004F1FE2 /* ThemeView.swift */; };
 		8C8249902C2405CD004F1FE2 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82498F2C2405CD004F1FE2 /* AboutView.swift */; };
 		8C82499F2C253935004F1FE2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8C82499E2C253935004F1FE2 /* Localizable.xcstrings */; };
+		8C8249A32C2553E0004F1FE2 /* ForEach++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249A22C2553E0004F1FE2 /* ForEach++.swift */; };
+		8C8249A52C2558A1004F1FE2 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */; };
 		8CBF2DB32C13029A00EA413F /* ContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBF2DB22C13029A00EA413F /* ContentController.swift */; };
 		8CBF2DBB2C13187300EA413F /* ScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBF2DB92C13187300EA413F /* ScreenController.swift */; };
 		8CBF2DBC2C13187300EA413F /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBF2DBA2C13187300EA413F /* ScreenView.swift */; };
@@ -34,6 +36,8 @@
 		8C82498F2C2405CD004F1FE2 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		8C82499E2C253935004F1FE2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		8C8249A02C254E45004F1FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8C8249A22C2553E0004F1FE2 /* ForEach++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForEach++.swift"; sourceTree = "<group>"; };
+		8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		8CBF2DB22C13029A00EA413F /* ContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentController.swift; sourceTree = "<group>"; };
 		8CBF2DB92C13187300EA413F /* ScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenController.swift; path = "屏幕遮盖/ScreenController.swift"; sourceTree = "<group>"; };
 		8CBF2DBA2C13187300EA413F /* ScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenView.swift; path = "屏幕遮盖/ScreenView.swift"; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 				8C8249A02C254E45004F1FE2 /* Info.plist */,
 				8C26005E2C11C7C500AF1FE9 /* MacApp.swift */,
 				8C82499E2C253935004F1FE2 /* Localizable.xcstrings */,
+				8C8249A12C2553C2004F1FE2 /* Tools */,
 				8C8249862C240513004F1FE2 /* Setting */,
 				8CBF2DB82C1313BC00EA413F /* PopMenu */,
 				8CBF2DB62C13137A00EA413F /* Home */,
@@ -101,6 +106,14 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		8C8249A12C2553C2004F1FE2 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				8C8249A22C2553E0004F1FE2 /* ForEach++.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		8CBF2DB62C13137A00EA413F /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				8C26006D2C129E5F00AF1FE9 /* HomeView.swift */,
+				8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */,
 			);
 			path = PopMenu;
 			sourceTree = "<group>";
@@ -204,7 +218,9 @@
 				8C2600612C11C7C500AF1FE9 /* ContentView.swift in Sources */,
 				8C8249902C2405CD004F1FE2 /* AboutView.swift in Sources */,
 				8C26005F2C11C7C500AF1FE9 /* MacApp.swift in Sources */,
+				8C8249A52C2558A1004F1FE2 /* ProgressBarView.swift in Sources */,
 				8C8249882C24058F004F1FE2 /* SettingView.swift in Sources */,
+				8C8249A32C2553E0004F1FE2 /* ForEach++.swift in Sources */,
 				8CBF2DBB2C13187300EA413F /* ScreenController.swift in Sources */,
 				8C82498C2C2405B5004F1FE2 /* ThemeView.swift in Sources */,
 				8CBF2DBC2C13187300EA413F /* ScreenView.swift in Sources */,

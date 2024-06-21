@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@" : {
+
+    },
     "Allow Skip" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -63,6 +66,23 @@
         }
       }
     },
+    "Quit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quit"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出"
+          }
+        }
+      }
+    },
     "Restplan" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -97,13 +117,58 @@
         }
       }
     },
-    "Start Timer" : {
-
+    "Retime" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retime"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置计划"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置"
+          }
+        }
+      }
+    },
+    "Take a rest" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a rest"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "休息一下"
+          }
+        }
+      }
     },
     "This is a full screen cover" : {
-
-    },
-    "Time Remaining: %@" : {
 
     },
     "WorkTime %lld" : {
@@ -122,18 +187,6 @@
           }
         }
       }
-    },
-    "休息一下" : {
-
-    },
-    "设置" : {
-
-    },
-    "退出" : {
-
-    },
-    "重置计划" : {
-
     }
   },
   "version" : "1.0"

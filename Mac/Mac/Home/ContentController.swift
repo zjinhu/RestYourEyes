@@ -32,10 +32,6 @@ class ContentController: NSWindowController, NSWindowDelegate{
 
     func showView() {
         guard let window = self.window else { return }
-        window.minSize = NSSize(width: 400, height: 500)
-        window.maxSize = NSSize(width: 800, height: 600)
-        window.setContentSize(NSSize(width: 400, height: 400))
-        window.center()
         window.makeKeyAndOrderFront(nil)
     }
 
