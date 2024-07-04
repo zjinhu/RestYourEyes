@@ -13,7 +13,7 @@ struct HomeView: View {
     @AppStorage("restTime") private var restTime: Int = 20
     
     @State var screenController: ScreenController?
-    @State var contentController: ContentController?
+//    @State var contentController: ContentController?
     
     @State var showFullScreen = false
     @State var showContent = false
@@ -126,14 +126,17 @@ struct HomeView: View {
             }
         }
         .onChange(of: showContent) { showFullScreen in
-            if showContent {
-                let view = ContentView()
-                let controller = ContentController(rootView: AnyView(view), isPresented: $showContent)
-                controller.showView()
-                contentController = controller
-            } else {
-                contentController?.closeView()
-            }
+            ///使用第三方设置页面
+            settingsWindowController.show()
+            ///我自己实现的SwiftUI设置页面
+//            if showContent {
+//                let view = ContentView()
+//                let controller = ContentController(rootView: AnyView(view), isPresented: $showContent)
+//                controller.showView()
+//                contentController = controller
+//            } else {
+//                contentController?.closeView()
+//            }
         }
         
     }

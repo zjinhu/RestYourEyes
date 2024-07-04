@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Settings
 
 class ContentController: NSWindowController, NSWindowDelegate{
 

@@ -13,8 +13,8 @@ struct MacApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ///可以设置成EmptyView()
-            ContentView()
+            ///设置不启动主窗口可以设置成EmptyView()
+            EmptyView()
         }
     }
 }
@@ -22,7 +22,8 @@ struct MacApp: App {
 private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     var statusBarItem: NSStatusItem!
     var popover: NSPopover!
- 
+    var eventMonitor: Any?
+    
     func applicationDidFinishLaunching(_ notification: Notification) {
         ///设置不启动主窗口
         NSApplication.shared.windows.forEach { $0.close() }
@@ -43,6 +44,18 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
             button.action = #selector(togglePopover(_:))
         }
         
+        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown], handler: { (event) in
+            if let popover = self.popover, popover.isShown {
+                popover.performClose(nil)
+            }
+        })
+    }
+    
+    func applicationWillTerminate(_ aNotification: Notification) {
+        // 移除全局事件监控器
+        if let eventMonitor = eventMonitor {
+            NSEvent.removeMonitor(eventMonitor)
+        }
     }
     
     @objc func togglePopover(_ sender: AnyObject?) {

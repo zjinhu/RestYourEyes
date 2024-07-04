@@ -55,6 +55,7 @@ struct SettingView: View {
             }
 
         }
+        .frame(width: 800, height: 600)
         .onChange(of: launchAtLogin) { newValue in
             setLaunchAtStartup(newValue)
         }
