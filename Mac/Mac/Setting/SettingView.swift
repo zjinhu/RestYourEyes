@@ -32,12 +32,12 @@ struct SettingView: View {
             }
             
             Section {
-                
-                Stepper(value: $workTime, in: 1...60, step: 1) {
+ 
+                LabeledStepper(value: $workTime, in: 1...60) {
                     Text("WorkTime \(workTime)")
                 }
                 
-                Stepper(value: $restTime, in: 1...60, step: 1) {
+                LabeledStepper(value: $restTime, in: 1...60) {
                     Text("RestTime \(restTime)")
                 }
                 
@@ -55,11 +55,16 @@ struct SettingView: View {
             }
 
         }
-        .frame(width: 800, height: 600)
+        .frame(width: 400, height: 400)
         .onChange(of: launchAtLogin) { newValue in
             setLaunchAtStartup(newValue)
         }
-
+        .onChange(of: workTime) { newValue in
+            NotificationCenter.default.post(name: .changeTimer, object: nil)
+        }
+        .onChange(of: restTime) { newValue in
+            NotificationCenter.default.post(name: .changeTimer, object: nil)
+        }
     }
     
     func setLaunchAtStartup(_ shouldStart: Bool) {

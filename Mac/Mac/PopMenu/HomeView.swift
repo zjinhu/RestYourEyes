@@ -10,7 +10,9 @@ import SwiftUI
 struct HomeView: View {
     
     @AppStorage("workTime") private var workTime: Int = 20
+    @State private var currentWorkTime: Int = 0
     @AppStorage("restTime") private var restTime: Int = 20
+    @State private var currentRestTime: Int = 0
     
     @State var screenController: ScreenController?
 //    @State var contentController: ContentController?
@@ -25,7 +27,7 @@ struct HomeView: View {
     @State var timeing = false
     
     @State private var workItem: DispatchWorkItem?
-    
+ 
     func startTimer() {
         stopTimer() // 先停止已有的计时器
         
@@ -79,6 +81,8 @@ struct HomeView: View {
             }
             .padding()
             
+            Spacer()
+            
             ZStack{
                 ProgressBarView(progress: $timeRemaining, goal: $timeAll)
                 
@@ -101,16 +105,18 @@ struct HomeView: View {
                 }
             }
             
+            Spacer()
+            
             Button("Take a rest") {
                 showFullScreen.toggle()
+                resumeTimerAfterPauseTime()
             }
             .padding()
             
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .onAppear{
-            timeAll = workTime * 60
-            timeRemaining = timeAll
+        .frame(width: 400, height: 500)
+        .onAppear{ 
+            refreshTimer()
         }
         .onChange(of: showFullScreen) { showFullScreen in
             if showFullScreen {
@@ -138,7 +144,17 @@ struct HomeView: View {
 //                contentController?.closeView()
 //            }
         }
-        
+        .onReceive(NotificationCenter.default.publisher(for: .changeTimer)) { notification in
+            refreshTimer()
+            stopTimer()
+        }
+    }
+    
+    func refreshTimer(){
+        currentWorkTime = workTime
+        currentRestTime = restTime
+        timeAll = currentWorkTime * 60
+        timeRemaining = timeAll
     }
     
     // 格式化时间的方法

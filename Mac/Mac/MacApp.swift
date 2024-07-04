@@ -69,3 +69,8 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
     }
     
 }
+
+extension Notification.Name {
+    static let changeTimer = Notification.Name("changeTimer")
+    static let launchStart = Notification.Name("launchStart")
+}

@@ -4,6 +4,12 @@
     "%@" : {
 
     },
+    "%lld" : {
+
+    },
+    "123" : {
+
+    },
     "Allow Skip" : {
       "extractionState" : "manual",
       "localizations" : {

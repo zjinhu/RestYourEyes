@@ -26,8 +26,8 @@ struct ProgressBarView: View {
         .fill(Color.gray)
         .rotationEffect(Angle(degrees: -90))
         .frame(
-          width: 300,
-          height: 300
+          width: 250,
+          height: 250
         )
       
       // overlap circle
@@ -53,8 +53,8 @@ struct ProgressBarView: View {
         )
         .rotationEffect(Angle(degrees: -90))
         .frame(
-          width: 300,
-          height: 300
+          width: 250,
+          height: 250
         )
     }
   }
