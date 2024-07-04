@@ -30,6 +30,8 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
         
         let contentView = HomeView()
         
+        TimerOB.shared.startTimer()
+        
         // Create the popover
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 400, height: 500)
@@ -69,8 +71,4 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
     }
     
 }
-
-extension Notification.Name {
-    static let changeTimer = Notification.Name("changeTimer")
-    static let launchStart = Notification.Name("launchStart")
-}
+ 

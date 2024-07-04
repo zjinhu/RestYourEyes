@@ -13,6 +13,7 @@
 		8C1F4FC92C367A1500B19F72 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F4FC82C367A1500B19F72 /* SettingsController.swift */; };
 		8C1F4FCE2C36874C00B19F72 /* LabeledStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F4FCD2C36874C00B19F72 /* LabeledStepper.swift */; };
 		8C1F4FD02C368F7400B19F72 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F4FCF2C368F7400B19F72 /* String+.swift */; };
+		8C1F4FD42C36A92000B19F72 /* TimerOB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F4FD32C36A92000B19F72 /* TimerOB.swift */; };
 		8C26005F2C11C7C500AF1FE9 /* MacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26005E2C11C7C500AF1FE9 /* MacApp.swift */; };
 		8C2600632C11C7C600AF1FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2600622C11C7C600AF1FE9 /* Assets.xcassets */; };
 		8C2600662C11C7C600AF1FE9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2600652C11C7C600AF1FE9 /* Preview Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		8C1F4FC82C367A1500B19F72 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		8C1F4FCD2C36874C00B19F72 /* LabeledStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabeledStepper.swift; sourceTree = "<group>"; };
 		8C1F4FCF2C368F7400B19F72 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		8C1F4FD32C36A92000B19F72 /* TimerOB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerOB.swift; sourceTree = "<group>"; };
 		8C26005B2C11C7C500AF1FE9 /* Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C26005E2C11C7C500AF1FE9 /* MacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacApp.swift; sourceTree = "<group>"; };
 		8C2600622C11C7C600AF1FE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				8C8249A02C254E45004F1FE2 /* Info.plist */,
 				8C26005E2C11C7C500AF1FE9 /* MacApp.swift */,
+				8C1F4FD32C36A92000B19F72 /* TimerOB.swift */,
 				8C82499E2C253935004F1FE2 /* Localizable.xcstrings */,
 				8C8249A12C2553C2004F1FE2 /* Tools */,
 				8CBF2DB82C1313BC00EA413F /* PopMenu */,
@@ -222,6 +225,7 @@
 				8C1F4FA42C3670C700B19F72 /* ScreenController.swift in Sources */,
 				8C8249902C2405CD004F1FE2 /* AboutView.swift in Sources */,
 				8C26005F2C11C7C500AF1FE9 /* MacApp.swift in Sources */,
+				8C1F4FD42C36A92000B19F72 /* TimerOB.swift in Sources */,
 				8C8249A52C2558A1004F1FE2 /* ProgressBarView.swift in Sources */,
 				8C8249882C24058F004F1FE2 /* SettingView.swift in Sources */,
 				8C8249A32C2553E0004F1FE2 /* ForEach++.swift in Sources */,

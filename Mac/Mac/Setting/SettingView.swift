@@ -12,13 +12,11 @@ struct SettingView: View {
  
     @State var launchAtLogin: Bool
     
-    @AppStorage("workTime") private var workTime: Int = 20
-    @AppStorage("restTime") private var restTime: Int = 20
-    @AppStorage("canJump") private var canJump: Bool = true
+    @StateObject var timerOB = TimerOB.shared
     
     init() {
             self.launchAtLogin = SMAppService.mainApp.status == .enabled
-        }
+    }
     
     var body: some View {
         List {
@@ -33,12 +31,12 @@ struct SettingView: View {
             
             Section {
  
-                LabeledStepper(value: $workTime, in: 1...60) {
-                    Text("WorkTime \(workTime)")
+                LabeledStepper(value: $timerOB.workTime, in: 1...60) {
+                    Text("WorkTime \(timerOB.workTime)")
                 }
                 
-                LabeledStepper(value: $restTime, in: 1...60) {
-                    Text("RestTime \(restTime)")
+                LabeledStepper(value: $timerOB.restTime, in: 1...60) {
+                    Text("RestTime \(timerOB.restTime)")
                 }
                 
             } header: {
@@ -47,7 +45,7 @@ struct SettingView: View {
             
             Section {
                 
-                Toggle("Allow Skip", isOn: $canJump)
+                Toggle("Allow Skip", isOn: $timerOB.canJump)
                     .toggleStyle(SwitchToggleStyle(tint: .red))
                 
             } header: {
@@ -59,12 +57,15 @@ struct SettingView: View {
         .onChange(of: launchAtLogin) { newValue in
             setLaunchAtStartup(newValue)
         }
-        .onChange(of: workTime) { newValue in
-            NotificationCenter.default.post(name: .changeTimer, object: nil)
+        .onChange(of: timerOB.workTime) { newValue in
+            timerOB.stopTimer()
+            timerOB.refreshTimer()
         }
-        .onChange(of: restTime) { newValue in
-            NotificationCenter.default.post(name: .changeTimer, object: nil)
+        .onChange(of: timerOB.restTime) { newValue in
+            timerOB.stopTimer()
+            timerOB.refreshTimer()
         }
+
     }
     
     func setLaunchAtStartup(_ shouldStart: Bool) {
