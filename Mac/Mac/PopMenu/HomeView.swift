@@ -32,20 +32,20 @@ struct HomeView: View {
             Spacer()
             
             ZStack{
-                ProgressBarView(progress: $timerOB.timeRemaining, goal: $timerOB.timeAll)
+                ProgressBarView(progress: $timerOB.workTimeRemaining, goal: $timerOB.workTimeAll)
                 
                 VStack{
-                    Text("\(formatTime(seconds: timerOB.timeRemaining))")
+                    Text("\(formatTime(seconds: timerOB.workTimeRemaining))")
                         .font(.largeTitle)
                         .padding()
                     
-                    if timerOB.timeing{
-                        Button(action: timerOB.stopTimer) {
+                    if timerOB.workTimeing{
+                        Button(action: timerOB.stopWorkTimer) {
                             Image(systemName: "stop.fill")
                                 .padding(10)
                         }
                     }else{
-                        Button(action: timerOB.startTimer) {
+                        Button(action: timerOB.startWorkTimer) {
                             Image(systemName: "play.fill")
                                 .padding(10)
                         }
@@ -57,7 +57,7 @@ struct HomeView: View {
             
             Button("Take a rest") {
                 timerOB.showFullScreen.toggle()
-                timerOB.resumeTimerAfterPauseTime()
+                timerOB.startRestTimer()
             }
             .padding()
             
@@ -70,7 +70,7 @@ struct HomeView: View {
                 controller.showFullScreen()
                 screenController = controller
             } else {
-                timerOB.startTimer()
+                timerOB.startWorkTimer()
                 screenController?.closeFullScreen()
             }
         }

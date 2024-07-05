@@ -16,53 +16,74 @@ class TimerOB: ObservableObject{
     
     @Published var showFullScreen = false
  
-    @Published var timeRemaining = 0 // 20分钟倒计时，以秒为单位
-    @Published var timeAll = 0
-    @Published var timeing = false
+    @Published var workTimeRemaining = 0 // 20分钟倒计时，以秒为单位
+    @Published var workTimeAll = 0
+    @Published var workTimeing = false
+ 
+    @Published var restTimeRemaining = 0 // 20分钟倒计时，以秒为单位
+    @Published var restTimeAll = 0
     
-    private var workItem: DispatchWorkItem?
-    private var timer: Timer?
+    private var workTimer: Timer?
+    private var restTimer: Timer?
     
-    func startTimer() {
-        stopTimer() // 先停止已有的计时器
-        refreshTimer()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            if self.timeRemaining > 0 {
-                withAnimation(.easeInOut(duration: 0.4)) {
-                    self.timeRemaining -= 1
+    func startWorkTimer() {
+        stopRestTimer()
+        stopWorkTimer()
+        refreshWorkTimer()
+        workTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            if self.workTimeRemaining > 0 {
+                withAnimation(.easeInOut(duration: 0.1)) {
+                    self.workTimeRemaining -= 1
                 }
-                self.timeing = true
+                self.workTimeing = true
             } else {
-                // 计时器完成，重新开始
-                self.timeRemaining = self.timeAll
                 self.showFullScreen.toggle()
-                self.resumeTimerAfterPauseTime()
+                self.startRestTimer()
+            }
+        }
+    }
+
+    func stopWorkTimer() {
+        workTimeing = false
+        workTimer?.invalidate()
+        workTimer = nil
+    }
+    
+    func startRestTimer() {
+        stopWorkTimer()
+        stopRestTimer()
+        refreshRestTimer()
+        restTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            if self.restTimeRemaining > 0 {
+                withAnimation(.easeInOut(duration: 0.1)) {
+                    self.restTimeRemaining -= 1
+                }
+            } else {
+                self.showFullScreen.toggle()
+                self.startWorkTimer()
             }
         }
     }
     
-    // 停止计时器的方法
-    func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-        timeRemaining = timeAll
-        timeing = false
+    func stopRestTimer(){
+        restTimer?.invalidate()
+        restTimer = nil
     }
     
-    func resumeTimerAfterPauseTime() {
-        
-        workItem = DispatchWorkItem {
-            self.showFullScreen.toggle()
-            self.startTimer()
-        }
-        if let workItem{
-            DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(restTime), execute: workItem)
-        }
-        
+    private func refreshWorkTimer(){
+        workTimeAll = workTime * 60
+        workTimeRemaining = workTimeAll
+    }
+    
+    private func refreshRestTimer(){
+        restTimeAll = restTime
+        restTimeRemaining = restTimeAll
     }
     
     func refreshTimer(){
-        timeAll = workTime * 60
-        timeRemaining = timeAll
+//        stopWorkTimer()
+//        stopRestTimer()
+        refreshWorkTimer()
+        refreshRestTimer()
     }
 }

@@ -58,11 +58,9 @@ struct SettingView: View {
             setLaunchAtStartup(newValue)
         }
         .onChange(of: timerOB.workTime) { newValue in
-            timerOB.stopTimer()
             timerOB.refreshTimer()
         }
         .onChange(of: timerOB.restTime) { newValue in
-            timerOB.stopTimer()
             timerOB.refreshTimer()
         }
 

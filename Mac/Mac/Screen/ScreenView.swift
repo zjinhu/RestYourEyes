@@ -10,13 +10,19 @@ import SwiftUI
 struct ScreenView: View {
     @Binding var isPresented: Bool
     @State private var isVisible = false
-    @AppStorage("canJump") private var canJump: Bool = true
+    @StateObject var timerOB = TimerOB.shared
     
     var body: some View {
         VStack {
+            Text("\(formatTime(seconds: timerOB.restTimeRemaining))")
+                .font(.largeTitle)
+                .padding()
+            
             Text("This is a full screen cover")
-            if canJump{
+            
+            if timerOB.canJump{
                 Button("Dismiss") {
+                    timerOB.startWorkTimer()
                     isPresented = false
                 }
             }
@@ -30,6 +36,12 @@ struct ScreenView: View {
                 isVisible.toggle()
             }
         }
+    }
+    
+    func formatTime(seconds: Int) -> String {
+        let minutes = seconds / 60
+        let seconds = seconds % 60
+        return String(format: "%02d:%02d", minutes, seconds)
     }
 }
 

@@ -30,7 +30,8 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
         
         let contentView = HomeView()
         
-        TimerOB.shared.startTimer()
+        TimerOB.shared.refreshTimer()
+        TimerOB.shared.startWorkTimer()
         
         // Create the popover
         let popover = NSPopover()
@@ -46,19 +47,19 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
             button.action = #selector(togglePopover(_:))
         }
         
-        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown], handler: { (event) in
-            if let popover = self.popover, popover.isShown {
-                popover.performClose(nil)
-            }
-        })
+//        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown], handler: { (event) in
+//            if let popover = self.popover, popover.isShown {
+//                popover.performClose(nil)
+//            }
+//        })
     }
     
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // 移除全局事件监控器
-        if let eventMonitor = eventMonitor {
-            NSEvent.removeMonitor(eventMonitor)
-        }
-    }
+//    func applicationWillTerminate(_ aNotification: Notification) {
+//        // 移除全局事件监控器
+//        if let eventMonitor = eventMonitor {
+//            NSEvent.removeMonitor(eventMonitor)
+//        }
+//    }
     
     @objc func togglePopover(_ sender: AnyObject?) {
         if let button = self.statusBarItem.button {
