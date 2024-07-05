@@ -24,7 +24,10 @@
 		8C82499F2C253935004F1FE2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8C82499E2C253935004F1FE2 /* Localizable.xcstrings */; };
 		8C8249A32C2553E0004F1FE2 /* ForEach++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249A22C2553E0004F1FE2 /* ForEach++.swift */; };
 		8C8249A52C2558A1004F1FE2 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */; };
-		8CEB13382C37D66C00515DC0 /* BrickKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8CEB13372C37D66C00515DC0 /* BrickKit */; };
+		8CEB133A2C37E0B800515DC0 /* Button+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB13392C37E0B800515DC0 /* Button+.swift */; };
+		8CEB133C2C37E1AD00515DC0 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB133B2C37E1AD00515DC0 /* PromptView.swift */; };
+		8CEB13812C37E50400515DC0 /* RestYourEyes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB137F2C37E50400515DC0 /* RestYourEyes.xcdatamodeld */; };
+		8CEB13832C37E51600515DC0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB13822C37E51600515DC0 /* Persistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,10 @@
 		8C8249A02C254E45004F1FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8C8249A22C2553E0004F1FE2 /* ForEach++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForEach++.swift"; sourceTree = "<group>"; };
 		8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		8CEB13392C37E0B800515DC0 /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
+		8CEB133B2C37E1AD00515DC0 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
+		8CEB13802C37E50400515DC0 /* RestYourEyes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RestYourEyes.xcdatamodel; sourceTree = "<group>"; };
+		8CEB13822C37E51600515DC0 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +62,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C1F4FC72C3674BF00B19F72 /* Settings in Frameworks */,
-				8CEB13382C37D66C00515DC0 /* BrickKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +125,7 @@
 				8C1F4FC82C367A1500B19F72 /* SettingsController.swift */,
 				8C8249872C24058F004F1FE2 /* SettingView.swift */,
 				8C82498B2C2405B5004F1FE2 /* ThemeView.swift */,
+				8CEB133B2C37E1AD00515DC0 /* PromptView.swift */,
 				8C82498F2C2405CD004F1FE2 /* AboutView.swift */,
 			);
 			path = Setting;
@@ -127,9 +134,13 @@
 		8C8249A12C2553C2004F1FE2 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				8CEB13822C37E51600515DC0 /* Persistence.swift */,
+				8CEB137F2C37E50400515DC0 /* RestYourEyes.xcdatamodeld */,
 				8C1F4FCD2C36874C00B19F72 /* LabeledStepper.swift */,
 				8C8249A22C2553E0004F1FE2 /* ForEach++.swift */,
 				8C1F4FCF2C368F7400B19F72 /* String+.swift */,
+				8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */,
+				8CEB13392C37E0B800515DC0 /* Button+.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -138,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				8C26006D2C129E5F00AF1FE9 /* HomeView.swift */,
-				8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */,
 			);
 			path = PopMenu;
 			sourceTree = "<group>";
@@ -161,7 +171,6 @@
 			name = Mac;
 			packageProductDependencies = (
 				8C1F4FC62C3674BF00B19F72 /* Settings */,
-				8CEB13372C37D66C00515DC0 /* BrickKit */,
 			);
 			productName = Mac;
 			productReference = 8C26005B2C11C7C500AF1FE9 /* Mac.app */;
@@ -230,11 +239,15 @@
 				8C26005F2C11C7C500AF1FE9 /* MacApp.swift in Sources */,
 				8C1F4FD42C36A92000B19F72 /* TimerOB.swift in Sources */,
 				8C8249A52C2558A1004F1FE2 /* ProgressBarView.swift in Sources */,
+				8CEB13832C37E51600515DC0 /* Persistence.swift in Sources */,
 				8C8249882C24058F004F1FE2 /* SettingView.swift in Sources */,
 				8C8249A32C2553E0004F1FE2 /* ForEach++.swift in Sources */,
 				8C82498C2C2405B5004F1FE2 /* ThemeView.swift in Sources */,
 				8C1F4FD02C368F7400B19F72 /* String+.swift in Sources */,
 				8C1F4FA52C3670C700B19F72 /* ScreenView.swift in Sources */,
+				8CEB13812C37E50400515DC0 /* RestYourEyes.xcdatamodeld in Sources */,
+				8CEB133C2C37E1AD00515DC0 /* PromptView.swift in Sources */,
+				8CEB133A2C37E0B800515DC0 /* Button+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,11 +476,21 @@
 			package = 8C1F4FC52C3674BF00B19F72 /* XCRemoteSwiftPackageReference "Settings" */;
 			productName = Settings;
 		};
-		8CEB13372C37D66C00515DC0 /* BrickKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = BrickKit;
-		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		8CEB137F2C37E50400515DC0 /* RestYourEyes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8CEB13802C37E50400515DC0 /* RestYourEyes.xcdatamodel */,
+			);
+			currentVersion = 8CEB13802C37E50400515DC0 /* RestYourEyes.xcdatamodel */;
+			name = RestYourEyes.xcdatamodeld;
+			path = /Users/funwidget/RestYourEyes/Mac/Mac/Tools/RestYourEyes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8C2600532C11C7C500AF1FE9 /* Project object */;
 }

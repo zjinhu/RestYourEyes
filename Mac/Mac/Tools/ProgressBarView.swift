@@ -23,7 +23,7 @@ struct ProgressBarView: View {
     public init(progress: Binding<Int>,
                 goal: Binding<Int>,
                 gradient: Gradient = Gradient(colors: [.green, .yellow, .orange, .red]),
-                trackColor: Color = Color.white.opacity(0.2),
+                trackColor: Color = Color.gray.opacity(0.2),
                 trackWidth: Double = 15.0,
                 isAnimated: Bool = true) {
         _progress = progress
@@ -69,4 +69,5 @@ struct ProgressBarView: View {
         goal: .constant(100)
     )
     .frame(width: 180)
+    .preferredColorScheme(.light)
 }

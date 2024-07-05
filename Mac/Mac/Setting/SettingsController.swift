@@ -12,6 +12,7 @@ let settingsWindowController = SettingsWindowController(
     panes: [
         GeneralSettingsViewController(),
         ThemeSettingsViewController(),
+        PromptSettingsViewController(),
         AboutSettingsViewController()
     ],
     style: .toolbarItems,
@@ -22,6 +23,7 @@ let settingsWindowController = SettingsWindowController(
 extension AppSettings.PaneIdentifier {
     static let general = Self("general")
     static let theme = Self("theme")
+    static let prompt = Self("prompt")
     static let about = Self("about")
 }
 
@@ -44,6 +46,21 @@ let ThemeSettingsViewController: () -> SettingsPane = {
         toolbarIcon: NSImage(systemSymbolName: "paintbrush.fill", accessibilityDescription: "Theme settings")!
     ) {
         ThemeView()
+    }
+
+    return AppSettings.PaneHostingController(pane: paneView)
+}
+
+let PromptSettingsViewController: () -> SettingsPane = {
+    let persistenceController = PersistenceController.shared
+    
+    let paneView = AppSettings.Pane(
+        identifier: .prompt,
+        title: "Prompt",
+        toolbarIcon: NSImage(systemSymbolName: "textformat", accessibilityDescription: "Prompt settings")!
+    ) {
+        PromptView()
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
 
     return AppSettings.PaneHostingController(pane: paneView)

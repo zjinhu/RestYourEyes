@@ -12,19 +12,30 @@ struct ScreenView: View {
     @State private var isVisible = false
     @StateObject var timerOB = TimerOB.shared
     
+    
+    @Environment(\.managedObjectContext) private var viewContext
+ 
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        predicate: \Item.open == true,
+        animation: .default)
+    private var items: FetchedResults<Item>
+    
+    
     var body: some View {
         VStack {
             Text("\(formatTime(seconds: timerOB.restTimeRemaining))")
-                .font(.largeTitle)
-                .padding()
-            
-            Text("This is a full screen cover")
+                .font(.system(size: 50, weight: .bold))
+ 
+            Text(items.randomElement()?.text ?? "闭眼休息")
+                .font(.system(size: 70, weight: .medium))
             
             if timerOB.canJump{
                 Button("Dismiss") {
                     timerOB.startWorkTimer()
                     isPresented = false
                 }
+                .buttonStyle(BorderedButtonStyle())
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -47,4 +58,8 @@ struct ScreenView: View {
 
 #Preview {
     ScreenView(isPresented: .constant(true))
+}
+
+func == <T>(lhs: KeyPath<some NSManagedObject, T>, rhs: T) -> NSPredicate {
+    NSComparisonPredicate(leftExpression: NSExpression(forKeyPath: lhs), rightExpression: NSExpression(forConstantValue: rhs), modifier: .direct, type: .equalTo)
 }

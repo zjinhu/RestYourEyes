@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+ 
     @StateObject var timerOB = TimerOB.shared
     
     @State var screenController: ScreenController?
@@ -91,6 +91,8 @@ struct HomeView: View {
         .onChange(of: timerOB.showFullScreen) { showFullScreen in
             if showFullScreen {
                 let screenView = ScreenView(isPresented: $timerOB.showFullScreen)
+                    .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
+
                 let controller = ScreenController(rootView: AnyView(screenView))
                 controller.showFullScreen()
                 screenController = controller
@@ -125,29 +127,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-}
-
-struct NoBackgroundButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .padding()
-            .contentShape(Rectangle())
-            .background(Color.clear)
-            .foregroundColor(.primary)
-    }
-}
-
-struct BorderedButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .padding(.vertical, 8)
-            .padding(.horizontal, 12)
-            .background(Color.clear)
-            .foregroundColor(.primary)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.primary, lineWidth: 2)
-            )
-            .opacity(configuration.isPressed ? 0.6 : 1.0) // 按下时改变透明度
-    }
+        .preferredColorScheme(.light)
 }

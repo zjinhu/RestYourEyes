@@ -15,8 +15,10 @@ struct AboutView: View {
                 .frame(width: 100, height: 100)
             
             Text(Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? "")
+                .font(.title3)
             
             Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.0")
+                .font(.footnote)
         }
         .frame(width: 300, height: 300)
     }
@@ -24,4 +26,5 @@ struct AboutView: View {
 
 #Preview {
     AboutView()
+        .preferredColorScheme(.light)
 }
