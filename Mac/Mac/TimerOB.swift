@@ -30,12 +30,12 @@ class TimerOB: ObservableObject{
         stopRestTimer()
         stopWorkTimer()
         refreshWorkTimer()
+        workTimeing = true
         workTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             if self.workTimeRemaining > 0 {
                 withAnimation(.easeInOut(duration: 0.1)) {
                     self.workTimeRemaining -= 1
                 }
-                self.workTimeing = true
             } else {
                 self.showFullScreen.toggle()
                 self.startRestTimer()

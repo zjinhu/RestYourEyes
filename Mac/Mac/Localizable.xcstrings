@@ -157,6 +157,23 @@
         }
       }
     },
+    "StopWork" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suspended"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "已暂停"
+          }
+        }
+      }
+    },
     "Take a rest" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -190,6 +207,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "每次工作时长 %lld 分钟"
+          }
+        }
+      }
+    },
+    "WorkTiping %lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rest %lld sec after work"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "工作中，工作结束后休息 %lld 秒"
           }
         }
       }

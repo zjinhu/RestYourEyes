@@ -6,11 +6,19 @@
 //
 
 import SwiftUI
-
 struct AboutView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .frame(width: 500, height: 700)
+        VStack(spacing: 10){
+            Image(systemName: "gear")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 100, height: 100)
+            
+            Text(Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? "")
+            
+            Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.0")
+        }
+        .frame(width: 300, height: 300)
     }
 }
 

@@ -17,39 +17,63 @@ struct HomeView: View {
     var body: some View {
         VStack{
             HStack{
-                Button("Settings") {
+ 
+                Button {
                     showContent.toggle()
+                } label: {
+                    Image(systemName: "gear.circle.fill")
+                        .resizable()
+                        .frame(width: 24, height: 24)
                 }
+                .buttonStyle(NoBackgroundButtonStyle())
                 
                 Spacer()
                 
-                Button("Quit") {
+                Button {
                     NSApp.terminate(nil)
+                } label: {
+                    Image(systemName: "power.circle.fill")
+                        .resizable()
+                        .frame(width: 24, height: 24)
                 }
+                .buttonStyle(NoBackgroundButtonStyle())
+
             }
-            .padding()
             
             Spacer()
             
             ZStack{
                 ProgressBarView(progress: $timerOB.workTimeRemaining, goal: $timerOB.workTimeAll)
+                    .frame(width: 180)
                 
-                VStack{
-                    Text("\(formatTime(seconds: timerOB.workTimeRemaining))")
-                        .font(.largeTitle)
-                        .padding()
-                    
-                    if timerOB.workTimeing{
-                        Button(action: timerOB.stopWorkTimer) {
-                            Image(systemName: "stop.fill")
-                                .padding(10)
-                        }
-                    }else{
-                        Button(action: timerOB.startWorkTimer) {
-                            Image(systemName: "play.fill")
-                                .padding(10)
-                        }
+                if timerOB.workTimeing{
+                    Button(action: timerOB.stopWorkTimer) {
+                        Image(systemName: "pause")
+                            .resizable()
+                            .frame(width: 50, height: 50)
                     }
+                    .buttonStyle(NoBackgroundButtonStyle())
+                }else{
+                    Button(action: timerOB.startWorkTimer) {
+                        Image(systemName: "play.fill")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                    }
+                    .buttonStyle(NoBackgroundButtonStyle())
+                }
+                
+            }
+            
+            Spacer()
+            
+            VStack{
+                Text("\(formatTime(seconds: timerOB.workTimeRemaining))")
+                    .font(.largeTitle)
+
+                if timerOB.workTimeing{
+                    Text("WorkTiping \(timerOB.restTime)")
+                }else{
+                    Text("StopWork")
                 }
             }
             
@@ -59,10 +83,11 @@ struct HomeView: View {
                 timerOB.showFullScreen.toggle()
                 timerOB.startRestTimer()
             }
-            .padding()
+            .buttonStyle(BorderedButtonStyle())
+            .padding(.bottom, 16)
             
         }
-        .frame(width: 400, height: 500)
+        .frame(width: 280, height: 450)
         .onChange(of: timerOB.showFullScreen) { showFullScreen in
             if showFullScreen {
                 let screenView = ScreenView(isPresented: $timerOB.showFullScreen)
@@ -102,3 +127,27 @@ struct HomeView: View {
     HomeView()
 }
 
+struct NoBackgroundButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .contentShape(Rectangle())
+            .background(Color.clear)
+            .foregroundColor(.primary)
+    }
+}
+
+struct BorderedButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(.vertical, 8)
+            .padding(.horizontal, 12)
+            .background(Color.clear)
+            .foregroundColor(.primary)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.primary, lineWidth: 2)
+            )
+            .opacity(configuration.isPressed ? 0.6 : 1.0) // 按下时改变透明度
+    }
+}

@@ -24,6 +24,7 @@
 		8C82499F2C253935004F1FE2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8C82499E2C253935004F1FE2 /* Localizable.xcstrings */; };
 		8C8249A32C2553E0004F1FE2 /* ForEach++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249A22C2553E0004F1FE2 /* ForEach++.swift */; };
 		8C8249A52C2558A1004F1FE2 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */; };
+		8CEB13382C37D66C00515DC0 /* BrickKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8CEB13372C37D66C00515DC0 /* BrickKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C1F4FC72C3674BF00B19F72 /* Settings in Frameworks */,
+				8CEB13382C37D66C00515DC0 /* BrickKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +161,7 @@
 			name = Mac;
 			packageProductDependencies = (
 				8C1F4FC62C3674BF00B19F72 /* Settings */,
+				8CEB13372C37D66C00515DC0 /* BrickKit */,
 			);
 			productName = Mac;
 			productReference = 8C26005B2C11C7C500AF1FE9 /* Mac.app */;
@@ -371,7 +374,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mac/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = RestYourEyes;
+				INFOPLIST_KEY_CFBundleDisplayName = "Rest Your Eyes";
 				INFOPLIST_KEY_LSBackgroundOnly = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -403,7 +406,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mac/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = RestYourEyes;
+				INFOPLIST_KEY_CFBundleDisplayName = "Rest Your Eyes";
 				INFOPLIST_KEY_LSBackgroundOnly = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -459,6 +462,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8C1F4FC52C3674BF00B19F72 /* XCRemoteSwiftPackageReference "Settings" */;
 			productName = Settings;
+		};
+		8CEB13372C37D66C00515DC0 /* BrickKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BrickKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
