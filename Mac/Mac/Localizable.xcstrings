@@ -4,9 +4,6 @@
     "" : {
 
     },
-    "%@" : {
-
-    },
     "%lld" : {
 
     },
@@ -175,6 +172,17 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "登录项"
+          }
+        }
+      }
+    },
+    "Menu bar display timer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏显示计时"
           }
         }
       }

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Combine
 @main
 struct MacApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
@@ -23,6 +23,8 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
     var statusBarItem: NSStatusItem!
     var popover: NSPopover!
     var eventMonitor: Any?
+    private var cancellable: AnyCancellable?
+    private var cancellableTimer: AnyCancellable?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         ///设置不启动主窗口
@@ -43,23 +45,62 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
         self.statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
         
         if let button = self.statusBarItem.button {
-            statusBarItem.button?.title = "⏳"
             button.action = #selector(togglePopover(_:))
+ 
+            if TimerOB.shared.showBarTimer{
+                start()
+            }else{
+                cancel()
+            }
+            
+            cancellableTimer = NotificationCenter.default.publisher(for: .displayTimer)
+                .sink { [weak self] _ in
+                    if TimerOB.shared.showBarTimer{
+                        self?.start()
+                    }else{
+                        self?.cancel()
+                    }
+                }
         }
         
-//        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown], handler: { (event) in
-//            if let popover = self.popover, popover.isShown {
-//                popover.performClose(nil)
-//            }
-//        })
+        //        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown], handler: { (event) in
+        //            if let popover = self.popover, popover.isShown {
+        //                popover.performClose(nil)
+        //            }
+        //        })
     }
     
-//    func applicationWillTerminate(_ aNotification: Notification) {
-//        // 移除全局事件监控器
-//        if let eventMonitor = eventMonitor {
-//            NSEvent.removeMonitor(eventMonitor)
-//        }
-//    }
+    //    func applicationWillTerminate(_ aNotification: Notification) {
+    //        // 移除全局事件监控器
+    //        if let eventMonitor = eventMonitor {
+    //            NSEvent.removeMonitor(eventMonitor)
+    //        }
+    //    }
+    
+    func start() {
+        if let button = self.statusBarItem.button {
+            
+            let configuration = NSImage.SymbolConfiguration(pointSize: 18, weight: .regular)
+            button.image = NSImage(systemSymbolName: "clock", accessibilityDescription: nil)?.withSymbolConfiguration(configuration)
+            
+            button.font = NSFont.monospacedDigitSystemFont(ofSize: 14, weight: .regular) // 调整文字大小
+            cancellable = TimerOB.shared.$workTimeRemaining
+                .sink { newValue in
+                    button.title = newValue.formatTime()
+                }
+        }
+    }
+    
+    func cancel() {
+        cancellable?.cancel()
+        
+        if let button = self.statusBarItem.button {
+            
+            let configuration = NSImage.SymbolConfiguration(pointSize: 18, weight: .regular)
+            button.image = NSImage(systemSymbolName: "clock", accessibilityDescription: nil)?.withSymbolConfiguration(configuration)
+            button.title = ""
+        }
+    }
     
     @objc func togglePopover(_ sender: AnyObject?) {
         if let button = self.statusBarItem.button {
@@ -72,4 +113,7 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
     }
     
 }
- 
+
+extension Notification.Name {
+    static let displayTimer = Notification.Name("displayTimer")
+}

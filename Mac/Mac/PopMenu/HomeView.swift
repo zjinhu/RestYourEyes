@@ -67,7 +67,7 @@ struct HomeView: View {
             Spacer()
             
             VStack{
-                Text("\(formatTime(seconds: timerOB.workTimeRemaining))")
+                Text(timerOB.workTimeRemaining.formatTime())
                     .font(.largeTitle)
 
                 if timerOB.workTimeing{
@@ -116,13 +116,6 @@ struct HomeView: View {
         }
     }
  
-    // 格式化时间的方法
-    func formatTime(seconds: Int) -> String {
-        let minutes = seconds / 60
-        let seconds = seconds % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
-    
 }
 
 #Preview {

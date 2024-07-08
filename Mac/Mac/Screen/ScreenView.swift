@@ -21,13 +21,14 @@ struct ScreenView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     
+    @State private var promptText = "Rest Your Eyes"
     
     var body: some View {
         VStack {
-            Text("\(formatTime(seconds: timerOB.restTimeRemaining))")
+            Text(timerOB.restTimeRemaining.formatTime())
                 .font(.system(size: 50, weight: .bold))
  
-            Text(items.randomElement()?.text ?? "Rest Your Eyes")
+            Text(promptText)
                 .font(.system(size: 70, weight: .medium))
             
             if timerOB.canJump{
@@ -45,14 +46,11 @@ struct ScreenView: View {
         .onAppear {
             withAnimation(.easeInOut(duration: 1.0)) {
                 isVisible.toggle()
+                if let text = items.randomElement()?.text{
+                    promptText = text
+                }
             }
         }
-    }
-    
-    func formatTime(seconds: Int) -> String {
-        let minutes = seconds / 60
-        let seconds = seconds % 60
-        return String(format: "%02d:%02d", minutes, seconds)
     }
 }
 

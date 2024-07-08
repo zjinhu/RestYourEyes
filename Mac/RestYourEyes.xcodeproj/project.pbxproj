@@ -12,7 +12,7 @@
 		8C1F4FC72C3674BF00B19F72 /* Settings in Frameworks */ = {isa = PBXBuildFile; productRef = 8C1F4FC62C3674BF00B19F72 /* Settings */; };
 		8C1F4FC92C367A1500B19F72 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F4FC82C367A1500B19F72 /* SettingsController.swift */; };
 		8C1F4FCE2C36874C00B19F72 /* LabeledStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F4FCD2C36874C00B19F72 /* LabeledStepper.swift */; };
-		8C1F4FD02C368F7400B19F72 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F4FCF2C368F7400B19F72 /* String+.swift */; };
+		8C1F4FD02C368F7400B19F72 /* Tool+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F4FCF2C368F7400B19F72 /* Tool+.swift */; };
 		8C1F4FD42C36A92000B19F72 /* TimerOB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F4FD32C36A92000B19F72 /* TimerOB.swift */; };
 		8C26005F2C11C7C500AF1FE9 /* MacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26005E2C11C7C500AF1FE9 /* MacApp.swift */; };
 		8C2600632C11C7C600AF1FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2600622C11C7C600AF1FE9 /* Assets.xcassets */; };
@@ -41,9 +41,9 @@
 		8C1F4FA22C3670C700B19F72 /* ScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
 		8C1F4FC82C367A1500B19F72 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		8C1F4FCD2C36874C00B19F72 /* LabeledStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabeledStepper.swift; sourceTree = "<group>"; };
-		8C1F4FCF2C368F7400B19F72 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		8C1F4FCF2C368F7400B19F72 /* Tool+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tool+.swift"; sourceTree = "<group>"; };
 		8C1F4FD32C36A92000B19F72 /* TimerOB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerOB.swift; sourceTree = "<group>"; };
-		8C26005B2C11C7C500AF1FE9 /* Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C26005B2C11C7C500AF1FE9 /* RestYourEyes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestYourEyes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C26005E2C11C7C500AF1FE9 /* MacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacApp.swift; sourceTree = "<group>"; };
 		8C2600622C11C7C600AF1FE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C2600652C11C7C600AF1FE9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		8C26005C2C11C7C500AF1FE9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C26005B2C11C7C500AF1FE9 /* Mac.app */,
+				8C26005B2C11C7C500AF1FE9 /* RestYourEyes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 				8CEB137F2C37E50400515DC0 /* RestYourEyes.xcdatamodeld */,
 				8C1F4FCD2C36874C00B19F72 /* LabeledStepper.swift */,
 				8C8249A22C2553E0004F1FE2 /* ForEach++.swift */,
-				8C1F4FCF2C368F7400B19F72 /* String+.swift */,
+				8C1F4FCF2C368F7400B19F72 /* Tool+.swift */,
 				8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */,
 				8CEB13392C37E0B800515DC0 /* Button+.swift */,
 			);
@@ -180,9 +180,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C26005A2C11C7C500AF1FE9 /* Mac */ = {
+		8C26005A2C11C7C500AF1FE9 /* RestYourEyes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C26006A2C11C7C600AF1FE9 /* Build configuration list for PBXNativeTarget "Mac" */;
+			buildConfigurationList = 8C26006A2C11C7C600AF1FE9 /* Build configuration list for PBXNativeTarget "RestYourEyes" */;
 			buildPhases = (
 				8C2600572C11C7C500AF1FE9 /* Sources */,
 				8C2600582C11C7C500AF1FE9 /* Frameworks */,
@@ -192,14 +192,14 @@
 			);
 			dependencies = (
 			);
-			name = Mac;
+			name = RestYourEyes;
 			packageProductDependencies = (
 				8C1F4FC62C3674BF00B19F72 /* Settings */,
 				8CEB0C532C3B945A003C3A59 /* SwiftUIIntrospect */,
 				8C54D8B72C3BA25000078F41 /* BrickKit */,
 			);
 			productName = Mac;
-			productReference = 8C26005B2C11C7C500AF1FE9 /* Mac.app */;
+			productReference = 8C26005B2C11C7C500AF1FE9 /* RestYourEyes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -217,7 +217,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8C2600562C11C7C500AF1FE9 /* Build configuration list for PBXProject "Mac" */;
+			buildConfigurationList = 8C2600562C11C7C500AF1FE9 /* Build configuration list for PBXProject "RestYourEyes" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -236,7 +236,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C26005A2C11C7C500AF1FE9 /* Mac */,
+				8C26005A2C11C7C500AF1FE9 /* RestYourEyes */,
 			);
 		};
 /* End PBXProject section */
@@ -273,7 +273,7 @@
 				8C8249882C24058F004F1FE2 /* SettingView.swift in Sources */,
 				8C8249A32C2553E0004F1FE2 /* ForEach++.swift in Sources */,
 				8C82498C2C2405B5004F1FE2 /* ThemeView.swift in Sources */,
-				8C1F4FD02C368F7400B19F72 /* String+.swift in Sources */,
+				8C1F4FD02C368F7400B19F72 /* Tool+.swift in Sources */,
 				8C1F4FA52C3670C700B19F72 /* ScreenView.swift in Sources */,
 				8C54D8BC2C3BB69200078F41 /* CharRainCell.swift in Sources */,
 				8CEB13812C37E50400515DC0 /* RestYourEyes.xcdatamodeld in Sources */,
@@ -471,7 +471,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C2600562C11C7C500AF1FE9 /* Build configuration list for PBXProject "Mac" */ = {
+		8C2600562C11C7C500AF1FE9 /* Build configuration list for PBXProject "RestYourEyes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C2600682C11C7C600AF1FE9 /* Debug */,
@@ -480,7 +480,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C26006A2C11C7C600AF1FE9 /* Build configuration list for PBXNativeTarget "Mac" */ = {
+		8C26006A2C11C7C600AF1FE9 /* Build configuration list for PBXNativeTarget "RestYourEyes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C26006B2C11C7C600AF1FE9 /* Debug */,

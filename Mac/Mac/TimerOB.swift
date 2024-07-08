@@ -13,14 +13,15 @@ class TimerOB: ObservableObject{
     @AppStorage("workTime") var workTime: Int = 20
     @AppStorage("restTime") var restTime: Int = 20
     @AppStorage("canJump") var canJump: Bool = true
+    @AppStorage("showBarTimer") var showBarTimer: Bool = true
     
     @Published var showFullScreen = false
  
-    @Published var workTimeRemaining = 0 // 20分钟倒计时，以秒为单位
+    @Published var workTimeRemaining: Int = 0 // 20分钟倒计时，以秒为单位
     @Published var workTimeAll = 0
     @Published var workTimeing = false
  
-    @Published var restTimeRemaining = 0 // 20分钟倒计时，以秒为单位
+    @Published var restTimeRemaining: Int = 0 // 20分钟倒计时，以秒为单位
     @Published var restTimeAll = 0
     
     private var workTimer: Timer?
@@ -36,6 +37,7 @@ class TimerOB: ObservableObject{
                 withAnimation(.easeInOut(duration: 0.1)) {
                     self.workTimeRemaining -= 1
                 }
+                
             } else {
                 self.showFullScreen.toggle()
                 self.startRestTimer()

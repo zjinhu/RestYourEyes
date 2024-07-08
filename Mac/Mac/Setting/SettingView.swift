@@ -48,12 +48,15 @@ struct SettingView: View {
                 Toggle("Allow Skip", isOn: $timerOB.canJump)
                     .toggleStyle(SwitchToggleStyle(tint: .red))
                 
+                Toggle("Menu bar display timer", isOn: $timerOB.showBarTimer)
+                    .toggleStyle(SwitchToggleStyle(tint: .red))
+                
             } header: {
                 Text("Display Rules")
             }
 
         }
-        .frame(width: 400, height: 300)
+        .frame(width: 400, height: 350)
         .onChange(of: launchAtLogin) { newValue in
             setLaunchAtStartup(newValue)
         }
@@ -63,7 +66,9 @@ struct SettingView: View {
         .onChange(of: timerOB.restTime) { newValue in
             timerOB.refreshTimer()
         }
-
+        .onChange(of: timerOB.showBarTimer) { newValue in
+            NotificationCenter.default.post(name: .displayTimer, object: nil)
+        }
     }
     
     func setLaunchAtStartup(_ shouldStart: Bool) {
