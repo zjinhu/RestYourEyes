@@ -20,7 +20,7 @@ struct AboutView: View {
             Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.0")
                 .font(.footnote)
         }
-        .frame(width: 300, height: 300)
+        .frame(width: 400, height: 400)
     }
 }
 

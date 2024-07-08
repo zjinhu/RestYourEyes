@@ -83,7 +83,7 @@ struct PromptView: View {
                 }
             }
         }
-        .frame(width: 400, height: 300)
+        .frame(width: 400, height: 400)
         .overlay(alignment: .bottomTrailing) {
             Button{
                 isAddPrompt.toggle()

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import BrickKit
+
 struct CharRainView: View {
     let date: Date
     let columnSize: CGFloat
@@ -27,7 +27,7 @@ struct CharRainView: View {
             }
         }
         .onAppear() {
-            let columnCount = Int(Screen.main.frame.size.width / columnSize)
+            let columnCount = Int(NSScreen.main!.frame.size.width / columnSize)
             nextIdx = Array(repeating: 0, count: columnCount)
         }
         .onChange(of: date) { newValue in
@@ -49,7 +49,7 @@ struct CharRainView: View {
             })
             nextIdx = nextIdx.map({x in
                 let result = x + 1
-                if x > Int(Screen.main.frame.size.height / columnSize) && Double.random(in: 0...1) > 0.8 {
+                if x > Int(NSScreen.main!.frame.size.height / columnSize) && Double.random(in: 0...1) > 0.8 {
                     return 0
                 }
                 return result

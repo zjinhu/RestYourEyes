@@ -18,7 +18,6 @@
 		8C2600632C11C7C600AF1FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2600622C11C7C600AF1FE9 /* Assets.xcassets */; };
 		8C2600662C11C7C600AF1FE9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2600652C11C7C600AF1FE9 /* Preview Assets.xcassets */; };
 		8C26006E2C129E5F00AF1FE9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26006D2C129E5F00AF1FE9 /* HomeView.swift */; };
-		8C54D8B82C3BA25000078F41 /* BrickKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8C54D8B72C3BA25000078F41 /* BrickKit */; };
 		8C54D8BA2C3BB5A300078F41 /* DefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C54D8B92C3BB5A300078F41 /* DefaultCell.swift */; };
 		8C54D8BC2C3BB69200078F41 /* CharRainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C54D8BB2C3BB69200078F41 /* CharRainCell.swift */; };
 		8C8249882C24058F004F1FE2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249872C24058F004F1FE2 /* SettingView.swift */; };
@@ -73,7 +72,6 @@
 			files = (
 				8C1F4FC72C3674BF00B19F72 /* Settings in Frameworks */,
 				8CEB0C542C3B945A003C3A59 /* SwiftUIIntrospect in Frameworks */,
-				8C54D8B82C3BA25000078F41 /* BrickKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,7 +194,6 @@
 			packageProductDependencies = (
 				8C1F4FC62C3674BF00B19F72 /* Settings */,
 				8CEB0C532C3B945A003C3A59 /* SwiftUIIntrospect */,
-				8C54D8B72C3BA25000078F41 /* BrickKit */,
 			);
 			productName = Mac;
 			productReference = 8C26005B2C11C7C500AF1FE9 /* RestYourEyes.app */;
@@ -230,7 +227,6 @@
 			packageReferences = (
 				8C1F4FC52C3674BF00B19F72 /* XCRemoteSwiftPackageReference "Settings" */,
 				8CEB0C522C3B945A003C3A59 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
-				8C54D8B62C3BA25000078F41 /* XCRemoteSwiftPackageReference "Brick_SwiftUI" */,
 			);
 			productRefGroup = 8C26005C2C11C7C500AF1FE9 /* Products */;
 			projectDirPath = "";
@@ -500,14 +496,6 @@
 				minimumVersion = 3.1.1;
 			};
 		};
-		8C54D8B62C3BA25000078F41 /* XCRemoteSwiftPackageReference "Brick_SwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/zjinhu/Brick_SwiftUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.4.4;
-			};
-		};
 		8CEB0C522C3B945A003C3A59 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/swiftui-introspect";
@@ -523,11 +511,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8C1F4FC52C3674BF00B19F72 /* XCRemoteSwiftPackageReference "Settings" */;
 			productName = Settings;
-		};
-		8C54D8B72C3BA25000078F41 /* BrickKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8C54D8B62C3BA25000078F41 /* XCRemoteSwiftPackageReference "Brick_SwiftUI" */;
-			productName = BrickKit;
 		};
 		8CEB0C532C3B945A003C3A59 /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;
