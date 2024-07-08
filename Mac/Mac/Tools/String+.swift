@@ -7,7 +7,7 @@
 
 import SwiftUI
 extension String {
-    var localizedString: LocalizedStringKey {
-        return LocalizedStringKey(self)
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
     }
 }

@@ -24,6 +24,8 @@
 		8C82499F2C253935004F1FE2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8C82499E2C253935004F1FE2 /* Localizable.xcstrings */; };
 		8C8249A32C2553E0004F1FE2 /* ForEach++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249A22C2553E0004F1FE2 /* ForEach++.swift */; };
 		8C8249A52C2558A1004F1FE2 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */; };
+		8CEB0C542C3B945A003C3A59 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 8CEB0C532C3B945A003C3A59 /* SwiftUIIntrospect */; };
+		8CEB0C562C3B9775003C3A59 /* PreviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB0C552C3B9775003C3A59 /* PreviewsView.swift */; };
 		8CEB133A2C37E0B800515DC0 /* Button+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB13392C37E0B800515DC0 /* Button+.swift */; };
 		8CEB133C2C37E1AD00515DC0 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB133B2C37E1AD00515DC0 /* PromptView.swift */; };
 		8CEB13812C37E50400515DC0 /* RestYourEyes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB137F2C37E50400515DC0 /* RestYourEyes.xcdatamodeld */; };
@@ -50,6 +52,7 @@
 		8C8249A02C254E45004F1FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8C8249A22C2553E0004F1FE2 /* ForEach++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForEach++.swift"; sourceTree = "<group>"; };
 		8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		8CEB0C552C3B9775003C3A59 /* PreviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewsView.swift; sourceTree = "<group>"; };
 		8CEB13392C37E0B800515DC0 /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
 		8CEB133B2C37E1AD00515DC0 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
 		8CEB13802C37E50400515DC0 /* RestYourEyes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RestYourEyes.xcdatamodel; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C1F4FC72C3674BF00B19F72 /* Settings in Frameworks */,
+				8CEB0C542C3B945A003C3A59 /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +77,7 @@
 			children = (
 				8C1F4FA12C3670C700B19F72 /* ScreenController.swift */,
 				8C1F4FA22C3670C700B19F72 /* ScreenView.swift */,
+				8CEB0C552C3B9775003C3A59 /* PreviewsView.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 			name = Mac;
 			packageProductDependencies = (
 				8C1F4FC62C3674BF00B19F72 /* Settings */,
+				8CEB0C532C3B945A003C3A59 /* SwiftUIIntrospect */,
 			);
 			productName = Mac;
 			productReference = 8C26005B2C11C7C500AF1FE9 /* Mac.app */;
@@ -203,6 +209,7 @@
 			mainGroup = 8C2600522C11C7C500AF1FE9;
 			packageReferences = (
 				8C1F4FC52C3674BF00B19F72 /* XCRemoteSwiftPackageReference "Settings" */,
+				8CEB0C522C3B945A003C3A59 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			productRefGroup = 8C26005C2C11C7C500AF1FE9 /* Products */;
 			projectDirPath = "";
@@ -240,6 +247,7 @@
 				8C1F4FD42C36A92000B19F72 /* TimerOB.swift in Sources */,
 				8C8249A52C2558A1004F1FE2 /* ProgressBarView.swift in Sources */,
 				8CEB13832C37E51600515DC0 /* Persistence.swift in Sources */,
+				8CEB0C562C3B9775003C3A59 /* PreviewsView.swift in Sources */,
 				8C8249882C24058F004F1FE2 /* SettingView.swift in Sources */,
 				8C8249A32C2553E0004F1FE2 /* ForEach++.swift in Sources */,
 				8C82498C2C2405B5004F1FE2 /* ThemeView.swift in Sources */,
@@ -468,6 +476,14 @@
 				minimumVersion = 3.1.1;
 			};
 		};
+		8CEB0C522C3B945A003C3A59 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/swiftui-introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -475,6 +491,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8C1F4FC52C3674BF00B19F72 /* XCRemoteSwiftPackageReference "Settings" */;
 			productName = Settings;
+		};
+		8CEB0C532C3B945A003C3A59 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CEB0C522C3B945A003C3A59 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = SwiftUIIntrospect;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreData
-
+import SwiftUIIntrospect
 struct PromptView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -19,50 +19,71 @@ struct PromptView: View {
     @State var isAddPrompt: Bool = false
     @State var isUpDatePrompt: Bool = false
     @State var isDeletePrompt: Bool = false
+    @State var isPreviewPrompt: Bool = false
+    @State var screenController: ScreenController?
+    
     @State var selectItem: Item?
     @State var inputPrompt: String = ""
     
     var body: some View {
         
-        List {
-            ForEach(items) { item in
- 
-                    HStack{
-                        Text(item.text ?? "")
-                        
-                        Spacer()
-                        
-                        Toggle("", isOn:
-                                Binding(
-                                    get: { item.open },
-                                    set: { newValue in
-                                        item.open = newValue
-                                        try? viewContext.save()
-                                    }
+        Group {
+            if items.isEmpty{
+                VStack(alignment: .leading){
+                    Text("1. Please click below + to add a prompt")
+                    Text("2. The prompts switch will read more than one randomly")
+                    Text("3. Right-click on a prompt to edit or delete it")
+                }
+                
+            }else{
+                List {
+                    ForEach(items) { item in
+         
+                            HStack{
+                                Text(item.text ?? "")
+                                
+                                Spacer()
+                                
+                                Toggle("", isOn:
+                                        Binding(
+                                            get: { item.open },
+                                            set: { newValue in
+                                                item.open = newValue
+                                                try? viewContext.save()
+                                            }
+                                        )
                                 )
-                        )
-                        .toggleStyle(SwitchToggleStyle(tint: .red))
-                        .labelsHidden()
-                    }
-                    .contextMenu{
-                        Button{
-                            selectItem = item
-                            isUpDatePrompt.toggle()
-                        } label: {
-                            Text("Edit")
-                        }
-                        
-                        Button{
-                            selectItem = item
-                            isDeletePrompt.toggle()
-                        } label: {
-                            Text("Delete")
-                        }
-                    }
+                                .toggleStyle(SwitchToggleStyle(tint: .red))
+                                .labelsHidden()
+                            }
+                            .contextMenu{
+                                Button{
+                                    selectItem = item
+                                    isPreviewPrompt.toggle()
+                                } label: {
+                                    Text("Preview")
+                                }
+                                
+                                Button{
+                                    selectItem = item
+                                    isUpDatePrompt.toggle()
+                                } label: {
+                                    Text("Edit")
+                                }
+                                
+                                Button{
+                                    selectItem = item
+                                    isDeletePrompt.toggle()
+                                } label: {
+                                    Text("Delete")
+                                }
+                            }
 
+                    }
+                }
             }
         }
-        .frame(width: 400, height: 600)
+        .frame(width: 400, height: 300)
         .overlay(alignment: .bottomTrailing) {
             Button{
                 isAddPrompt.toggle()
@@ -77,14 +98,21 @@ struct PromptView: View {
         }
         .sheet(isPresented: $isAddPrompt){
             VStack{
-                TextField("Please input", text: $inputPrompt)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                TextEditor(text: $inputPrompt)
+                    .frame(maxHeight: .infinity)
+                    .introspect(.textEditor, on: .macOS(.v13, .v14, .v15)) { textView in
+                        guard let scrollView = textView.enclosingScrollView else { return }
+                        scrollView.autohidesScrollers = true
+                    }
+                
                 HStack{
                     Button{
                         isAddPrompt.toggle()
                         inputPrompt = ""
                     } label: {
                         Text("Cancel")
+                            .frame(maxWidth: .infinity)
                     }
                     
                     Button{
@@ -94,20 +122,29 @@ struct PromptView: View {
                         }
                     } label: {
                         Text("Save")
+                            .frame(maxWidth: .infinity)
                     }
                 }
             }
+            .padding()
+            .frame(width: 200, height: 120)
         }
         .sheet(isPresented: $isUpDatePrompt){
             VStack{
-                TextField("Please input", text: $inputPrompt)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                TextEditor(text: $inputPrompt)
+                    .frame(maxHeight: .infinity)
+                    .introspect(.textEditor, on: .macOS(.v13, .v14, .v15)) { textView in
+                        guard let scrollView = textView.enclosingScrollView else { return }
+                        scrollView.autohidesScrollers = true
+                    }
+                
                 HStack{
                     Button{
                         isUpDatePrompt.toggle()
                         inputPrompt = ""
                     } label: {
                         Text("Cancel")
+                            .frame(maxWidth: .infinity)
                     }
                     
                     Button{
@@ -117,9 +154,12 @@ struct PromptView: View {
                         }
                     } label: {
                         Text("Save")
+                            .frame(maxWidth: .infinity)
                     }
                 }
             }
+            .padding()
+            .frame(width: 200, height: 120)
             
         }
         .alert(isPresented: $isDeletePrompt) {
@@ -133,6 +173,16 @@ struct PromptView: View {
                 },
                 secondaryButton: .cancel()
             )
+        }
+        .onChange(of: isPreviewPrompt) { showFullScreen in
+            if showFullScreen {
+                let screenView = PreviewsView(isPresented: $isPreviewPrompt, prompt: selectItem?.text)
+                let controller = ScreenController(rootView: AnyView(screenView))
+                controller.showFullScreen()
+                screenController = controller
+            } else {
+                screenController?.closeFullScreen()
+            }
         }
     }
 

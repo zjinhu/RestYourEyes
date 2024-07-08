@@ -30,7 +30,7 @@ extension AppSettings.PaneIdentifier {
 let GeneralSettingsViewController: () -> SettingsPane = {
     let paneView = AppSettings.Pane(
         identifier: .general,
-        title: "General",
+        title: "General".localized,
         toolbarIcon: NSImage(systemSymbolName: "gearshape", accessibilityDescription: "General settings")!
     ) {
         SettingView()
@@ -42,7 +42,7 @@ let GeneralSettingsViewController: () -> SettingsPane = {
 let ThemeSettingsViewController: () -> SettingsPane = {
     let paneView = AppSettings.Pane(
         identifier: .theme,
-        title: "Theme",
+        title: "Theme".localized,
         toolbarIcon: NSImage(systemSymbolName: "paintbrush.fill", accessibilityDescription: "Theme settings")!
     ) {
         ThemeView()
@@ -56,7 +56,7 @@ let PromptSettingsViewController: () -> SettingsPane = {
     
     let paneView = AppSettings.Pane(
         identifier: .prompt,
-        title: "Prompt",
+        title: "Prompt".localized,
         toolbarIcon: NSImage(systemSymbolName: "textformat", accessibilityDescription: "Prompt settings")!
     ) {
         PromptView()
@@ -69,7 +69,7 @@ let PromptSettingsViewController: () -> SettingsPane = {
 let AboutSettingsViewController: () -> SettingsPane = {
     let paneView = AppSettings.Pane(
         identifier: .about,
-        title: "About",
+        title: "About".localized,
         toolbarIcon: NSImage(systemSymbolName: "exclamationmark.circle.fill", accessibilityDescription: "About settings")!
     ) {
         AboutView()

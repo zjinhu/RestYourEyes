@@ -10,8 +10,55 @@
     "%lld" : {
 
     },
+    "00:00" : {
+
+    },
+    "1. Please click below + to add a prompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1.请点击下方+添加提示语"
+          }
+        }
+      }
+    },
+    "2. The prompts switch will read more than one randomly" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2.提示语开关打开多个会随机读取"
+          }
+        }
+      }
+    },
+    "3. Right-click on a prompt to edit or delete it" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3.右键点击提示语可以编辑或者删除"
+          }
+        }
+      }
+    },
     "123" : {
 
+    },
+    "About" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于"
+          }
+        }
+      }
     },
     "Allow Skip" : {
       "extractionState" : "manual",
@@ -25,7 +72,14 @@
       }
     },
     "Are you sure to delete %@?" : {
-
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定删除%@？"
+          }
+        }
+      }
     },
     "Cancel" : {
       "extractionState" : "manual",
@@ -80,6 +134,17 @@
         }
       }
     },
+    "General" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置"
+          }
+        }
+      }
+    },
     "Hello, World!" : {
 
     },
@@ -124,6 +189,27 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "请输入"
+          }
+        }
+      }
+    },
+    "Preview" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "预览"
+          }
+        }
+      }
+    },
+    "Prompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提示语"
           }
         }
       }
@@ -265,6 +351,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "休息一下"
+          }
+        }
+      }
+    },
+    "Theme" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主题"
           }
         }
       }

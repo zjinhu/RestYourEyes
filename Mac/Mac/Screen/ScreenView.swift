@@ -27,7 +27,7 @@ struct ScreenView: View {
             Text("\(formatTime(seconds: timerOB.restTimeRemaining))")
                 .font(.system(size: 50, weight: .bold))
  
-            Text(items.randomElement()?.text ?? "闭眼休息")
+            Text(items.randomElement()?.text ?? "Rest Your Eyes")
                 .font(.system(size: 70, weight: .medium))
             
             if timerOB.canJump{
