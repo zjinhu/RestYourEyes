@@ -145,9 +145,6 @@
         }
       }
     },
-    "Hello, World!" : {
-
-    },
     "LaunchAuto" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -18,6 +18,9 @@
 		8C2600632C11C7C600AF1FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2600622C11C7C600AF1FE9 /* Assets.xcassets */; };
 		8C2600662C11C7C600AF1FE9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2600652C11C7C600AF1FE9 /* Preview Assets.xcassets */; };
 		8C26006E2C129E5F00AF1FE9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26006D2C129E5F00AF1FE9 /* HomeView.swift */; };
+		8C54D8B82C3BA25000078F41 /* BrickKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8C54D8B72C3BA25000078F41 /* BrickKit */; };
+		8C54D8BA2C3BB5A300078F41 /* DefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C54D8B92C3BB5A300078F41 /* DefaultCell.swift */; };
+		8C54D8BC2C3BB69200078F41 /* CharRainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C54D8BB2C3BB69200078F41 /* CharRainCell.swift */; };
 		8C8249882C24058F004F1FE2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249872C24058F004F1FE2 /* SettingView.swift */; };
 		8C82498C2C2405B5004F1FE2 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82498B2C2405B5004F1FE2 /* ThemeView.swift */; };
 		8C8249902C2405CD004F1FE2 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82498F2C2405CD004F1FE2 /* AboutView.swift */; };
@@ -26,6 +29,7 @@
 		8C8249A52C2558A1004F1FE2 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */; };
 		8CEB0C542C3B945A003C3A59 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 8CEB0C532C3B945A003C3A59 /* SwiftUIIntrospect */; };
 		8CEB0C562C3B9775003C3A59 /* PreviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB0C552C3B9775003C3A59 /* PreviewsView.swift */; };
+		8CEB0C592C3B9DD7003C3A59 /* CharRainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB0C582C3B9DD7003C3A59 /* CharRainView.swift */; };
 		8CEB133A2C37E0B800515DC0 /* Button+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB13392C37E0B800515DC0 /* Button+.swift */; };
 		8CEB133C2C37E1AD00515DC0 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB133B2C37E1AD00515DC0 /* PromptView.swift */; };
 		8CEB13812C37E50400515DC0 /* RestYourEyes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB137F2C37E50400515DC0 /* RestYourEyes.xcdatamodeld */; };
@@ -45,6 +49,8 @@
 		8C2600652C11C7C600AF1FE9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8C2600672C11C7C600AF1FE9 /* Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mac.entitlements; sourceTree = "<group>"; };
 		8C26006D2C129E5F00AF1FE9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8C54D8B92C3BB5A300078F41 /* DefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCell.swift; sourceTree = "<group>"; };
+		8C54D8BB2C3BB69200078F41 /* CharRainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharRainCell.swift; sourceTree = "<group>"; };
 		8C8249872C24058F004F1FE2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		8C82498B2C2405B5004F1FE2 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		8C82498F2C2405CD004F1FE2 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -53,6 +59,7 @@
 		8C8249A22C2553E0004F1FE2 /* ForEach++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForEach++.swift"; sourceTree = "<group>"; };
 		8C8249A42C2558A1004F1FE2 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		8CEB0C552C3B9775003C3A59 /* PreviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewsView.swift; sourceTree = "<group>"; };
+		8CEB0C582C3B9DD7003C3A59 /* CharRainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharRainView.swift; sourceTree = "<group>"; };
 		8CEB13392C37E0B800515DC0 /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
 		8CEB133B2C37E1AD00515DC0 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
 		8CEB13802C37E50400515DC0 /* RestYourEyes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RestYourEyes.xcdatamodel; sourceTree = "<group>"; };
@@ -66,6 +73,7 @@
 			files = (
 				8C1F4FC72C3674BF00B19F72 /* Settings in Frameworks */,
 				8CEB0C542C3B945A003C3A59 /* SwiftUIIntrospect in Frameworks */,
+				8C54D8B82C3BA25000078F41 /* BrickKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +117,7 @@
 				8CBF2DB82C1313BC00EA413F /* PopMenu */,
 				8C1F4FA32C3670C700B19F72 /* Screen */,
 				8C8249862C240513004F1FE2 /* Setting */,
+				8CEB0C572C3B9DBE003C3A59 /* Theme */,
 				8C2600622C11C7C600AF1FE9 /* Assets.xcassets */,
 				8C2600672C11C7C600AF1FE9 /* Mac.entitlements */,
 				8C2600642C11C7C600AF1FE9 /* Preview Content */,
@@ -158,6 +167,16 @@
 			path = PopMenu;
 			sourceTree = "<group>";
 		};
+		8CEB0C572C3B9DBE003C3A59 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				8CEB0C582C3B9DD7003C3A59 /* CharRainView.swift */,
+				8C54D8BB2C3BB69200078F41 /* CharRainCell.swift */,
+				8C54D8B92C3BB5A300078F41 /* DefaultCell.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,6 +196,7 @@
 			packageProductDependencies = (
 				8C1F4FC62C3674BF00B19F72 /* Settings */,
 				8CEB0C532C3B945A003C3A59 /* SwiftUIIntrospect */,
+				8C54D8B72C3BA25000078F41 /* BrickKit */,
 			);
 			productName = Mac;
 			productReference = 8C26005B2C11C7C500AF1FE9 /* Mac.app */;
@@ -210,6 +230,7 @@
 			packageReferences = (
 				8C1F4FC52C3674BF00B19F72 /* XCRemoteSwiftPackageReference "Settings" */,
 				8CEB0C522C3B945A003C3A59 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+				8C54D8B62C3BA25000078F41 /* XCRemoteSwiftPackageReference "Brick_SwiftUI" */,
 			);
 			productRefGroup = 8C26005C2C11C7C500AF1FE9 /* Products */;
 			projectDirPath = "";
@@ -239,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C1F4FCE2C36874C00B19F72 /* LabeledStepper.swift in Sources */,
+				8C54D8BA2C3BB5A300078F41 /* DefaultCell.swift in Sources */,
 				8C1F4FC92C367A1500B19F72 /* SettingsController.swift in Sources */,
 				8C26006E2C129E5F00AF1FE9 /* HomeView.swift in Sources */,
 				8C1F4FA42C3670C700B19F72 /* ScreenController.swift in Sources */,
@@ -253,8 +275,10 @@
 				8C82498C2C2405B5004F1FE2 /* ThemeView.swift in Sources */,
 				8C1F4FD02C368F7400B19F72 /* String+.swift in Sources */,
 				8C1F4FA52C3670C700B19F72 /* ScreenView.swift in Sources */,
+				8C54D8BC2C3BB69200078F41 /* CharRainCell.swift in Sources */,
 				8CEB13812C37E50400515DC0 /* RestYourEyes.xcdatamodeld in Sources */,
 				8CEB133C2C37E1AD00515DC0 /* PromptView.swift in Sources */,
+				8CEB0C592C3B9DD7003C3A59 /* CharRainView.swift in Sources */,
 				8CEB133A2C37E0B800515DC0 /* Button+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +500,14 @@
 				minimumVersion = 3.1.1;
 			};
 		};
+		8C54D8B62C3BA25000078F41 /* XCRemoteSwiftPackageReference "Brick_SwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zjinhu/Brick_SwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.4;
+			};
+		};
 		8CEB0C522C3B945A003C3A59 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/swiftui-introspect";
@@ -491,6 +523,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8C1F4FC52C3674BF00B19F72 /* XCRemoteSwiftPackageReference "Settings" */;
 			productName = Settings;
+		};
+		8C54D8B72C3BA25000078F41 /* BrickKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C54D8B62C3BA25000078F41 /* XCRemoteSwiftPackageReference "Brick_SwiftUI" */;
+			productName = BrickKit;
 		};
 		8CEB0C532C3B945A003C3A59 /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;

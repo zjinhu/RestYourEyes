@@ -7,10 +7,33 @@
 
 import SwiftUI
 
+enum ThemeStyle{
+    case charRain
+    case color
+}
+
 struct ThemeView: View {
+    @State private var selected: ThemeStyle = .color
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .frame(width: 400, height: 600)
+        List{
+            HStack{
+                DefaultCell()
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                selected = .color
+            }
+            
+            HStack{
+                CharRainCell()
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                selected = .charRain
+            }
+        }
+        .frame(width: 440, height: 300)
     }
 }
 

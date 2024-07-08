@@ -11,7 +11,7 @@ import Settings
 let settingsWindowController = SettingsWindowController(
     panes: [
         GeneralSettingsViewController(),
-        ThemeSettingsViewController(),
+//        ThemeSettingsViewController(),
         PromptSettingsViewController(),
         AboutSettingsViewController()
     ],
@@ -22,7 +22,7 @@ let settingsWindowController = SettingsWindowController(
 
 extension AppSettings.PaneIdentifier {
     static let general = Self("general")
-    static let theme = Self("theme")
+//    static let theme = Self("theme")
     static let prompt = Self("prompt")
     static let about = Self("about")
 }
@@ -39,17 +39,17 @@ let GeneralSettingsViewController: () -> SettingsPane = {
     return AppSettings.PaneHostingController(pane: paneView)
 }
 
-let ThemeSettingsViewController: () -> SettingsPane = {
-    let paneView = AppSettings.Pane(
-        identifier: .theme,
-        title: "Theme".localized,
-        toolbarIcon: NSImage(systemSymbolName: "paintbrush.fill", accessibilityDescription: "Theme settings")!
-    ) {
-        ThemeView()
-    }
-
-    return AppSettings.PaneHostingController(pane: paneView)
-}
+//let ThemeSettingsViewController: () -> SettingsPane = {
+//    let paneView = AppSettings.Pane(
+//        identifier: .theme,
+//        title: "Theme".localized,
+//        toolbarIcon: NSImage(systemSymbolName: "paintbrush.fill", accessibilityDescription: "Theme settings")!
+//    ) {
+//        ThemeView()
+//    }
+//
+//    return AppSettings.PaneHostingController(pane: paneView)
+//}
 
 let PromptSettingsViewController: () -> SettingsPane = {
     let persistenceController = PersistenceController.shared
