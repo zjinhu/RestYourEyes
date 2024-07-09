@@ -35,7 +35,6 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
         TimerOB.shared.refreshTimer()
         TimerOB.shared.startWorkTimer()
         
-        // Create the popover
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 400, height: 500)
         popover.behavior = .transient
@@ -45,13 +44,8 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
         self.statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
         
         if let button = self.statusBarItem.button {
+            
             button.action = #selector(togglePopover(_:))
- 
-            if TimerOB.shared.showBarTimer{
-                start()
-            }else{
-                cancel()
-            }
             
             cancellableTimer = NotificationCenter.default.publisher(for: .displayTimer)
                 .sink { [weak self] _ in
@@ -61,9 +55,16 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
                         self?.cancel()
                     }
                 }
+            
+            if TimerOB.shared.showBarTimer{
+                start()
+            }else{
+                cancel()
+            }
+            
         }
     }
- 
+    
     func start() {
         if let button = self.statusBarItem.button {
             
