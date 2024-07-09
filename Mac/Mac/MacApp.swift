@@ -62,21 +62,8 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
                     }
                 }
         }
-        
-        //        eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown], handler: { (event) in
-        //            if let popover = self.popover, popover.isShown {
-        //                popover.performClose(nil)
-        //            }
-        //        })
     }
-    
-    //    func applicationWillTerminate(_ aNotification: Notification) {
-    //        // 移除全局事件监控器
-    //        if let eventMonitor = eventMonitor {
-    //            NSEvent.removeMonitor(eventMonitor)
-    //        }
-    //    }
-    
+ 
     func start() {
         if let button = self.statusBarItem.button {
             
