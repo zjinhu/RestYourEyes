@@ -9,7 +9,7 @@ import SwiftUI
 struct AboutView: View {
     var body: some View {
         VStack(spacing: 10){
-            Image(systemName: "gear")
+            Image("icon")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 100, height: 100)
