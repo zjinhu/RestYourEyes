@@ -81,7 +81,7 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
         if let button = self.statusBarItem.button {
             
             let configuration = NSImage.SymbolConfiguration(pointSize: 18, weight: .regular)
-            button.image = NSImage(systemSymbolName: "clock", accessibilityDescription: nil)?.withSymbolConfiguration(configuration)
+            button.image = NSImage(systemSymbolName: "timer", accessibilityDescription: nil)?.withSymbolConfiguration(configuration)
             
             button.font = NSFont.monospacedDigitSystemFont(ofSize: 14, weight: .regular) // 调整文字大小
             cancellable = TimerOB.shared.$workTimeRemaining
@@ -97,7 +97,7 @@ private final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelega
         if let button = self.statusBarItem.button {
             
             let configuration = NSImage.SymbolConfiguration(pointSize: 18, weight: .regular)
-            button.image = NSImage(systemSymbolName: "clock", accessibilityDescription: nil)?.withSymbolConfiguration(configuration)
+            button.image = NSImage(systemSymbolName: "timer", accessibilityDescription: nil)?.withSymbolConfiguration(configuration)
             button.title = ""
         }
     }
