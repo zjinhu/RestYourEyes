@@ -62,7 +62,6 @@ struct ProgressBarView: View {
     }
 }
 
-
 #Preview {
     ProgressBarView(
         progress: .constant(10),
