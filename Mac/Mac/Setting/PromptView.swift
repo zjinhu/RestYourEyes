@@ -20,7 +20,7 @@ struct PromptView: View {
     @State var isUpDatePrompt: Bool = false
     @State var isDeletePrompt: Bool = false
     @State var isPreviewPrompt: Bool = false
-    @State var screenController: ScreenController?
+    @State var windowControllers: [ScreenController] = []
     
     @State var selectItem: Item?
     @State var inputPrompt: String = ""
@@ -176,12 +176,17 @@ struct PromptView: View {
         }
         .onChange(of: isPreviewPrompt) { showFullScreen in
             if showFullScreen {
-                let screenView = PreviewsView(isPresented: $isPreviewPrompt, prompt: selectItem?.text)
-                let controller = ScreenController(rootView: AnyView(screenView))
-                controller.showFullScreen()
-                screenController = controller
+                for screen in NSScreen.screens{
+                    let screenView = PreviewsView(isPresented: $isPreviewPrompt, prompt: selectItem?.text)
+                    let controller = ScreenController(rootView: AnyView(screenView), screen: screen)
+                    controller.showFullScreen()
+                    windowControllers.append(controller)
+                }
             } else {
-                screenController?.closeFullScreen()
+                for window in windowControllers{
+                    window.closeFullScreen()
+                }
+                windowControllers.removeAll()
             }
         }
     }

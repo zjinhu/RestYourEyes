@@ -7,13 +7,14 @@
 
 import SwiftUI
 class ScreenController: NSWindowController {
-    convenience init(rootView: AnyView) {
+    convenience init(rootView: AnyView, screen: NSScreen?) {
         let screenSize = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 800, height: 600)
         let window = NSWindow(
             contentRect: screenSize,
             styleMask: [.fullScreen, .fullSizeContentView, .titled, .closable, .resizable, .miniaturizable],
             backing: .buffered,
-            defer: false
+            defer: false,
+            screen: screen
         )
         window.level = .screenSaver
         window.isMovable = false

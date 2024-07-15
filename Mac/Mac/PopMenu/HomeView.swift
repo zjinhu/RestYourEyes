@@ -11,7 +11,7 @@ struct HomeView: View {
  
     @StateObject var timerOB = TimerOB.shared
     
-    @State var screenController: ScreenController?
+    @State var windowControllers: [ScreenController] = []
     @State var showContent = false
  
     var body: some View {
@@ -90,15 +90,21 @@ struct HomeView: View {
         .frame(width: 280, height: 450)
         .onChange(of: timerOB.showFullScreen) { showFullScreen in
             if showFullScreen {
-                let screenView = ScreenView(isPresented: $timerOB.showFullScreen)
-                    .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
+                for screen in NSScreen.screens{
+                    let screenView = ScreenView(isPresented: $timerOB.showFullScreen)
+                        .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
 
-                let controller = ScreenController(rootView: AnyView(screenView))
-                controller.showFullScreen()
-                screenController = controller
+                    let controller = ScreenController(rootView: AnyView(screenView), screen: screen)
+                    controller.showFullScreen()
+                    windowControllers.append(controller)
+                }
+
             } else {
                 timerOB.startWorkTimer()
-                screenController?.closeFullScreen()
+                for window in windowControllers{
+                    window.closeFullScreen()
+                }
+                windowControllers.removeAll()
             }
         }
         .onChange(of: showContent) { showFullScreen in
