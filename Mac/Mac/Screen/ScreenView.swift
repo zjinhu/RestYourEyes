@@ -21,7 +21,7 @@ struct ScreenView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     
-    @State private var promptText = "Rest Your Eyes"
+    @State private var promptText = ""
     
     var body: some View {
         VStack {
@@ -32,8 +32,7 @@ struct ScreenView: View {
                 .font(.system(size: 70, weight: .medium))
             
             if timerOB.canJump{
-                Button("Dismiss") {
-                    timerOB.startWorkTimer()
+                Button("Dismiss") { 
                     isPresented = false
                 }
                 .buttonStyle(BorderedButtonStyle())

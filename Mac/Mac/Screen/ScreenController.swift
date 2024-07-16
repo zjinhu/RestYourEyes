@@ -7,10 +7,9 @@
 
 import SwiftUI
 class ScreenController: NSWindowController {
-    convenience init(rootView: AnyView, screen: NSScreen?) {
-        let screenSize = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 800, height: 600)
+    convenience init(rootView: AnyView, screen: NSScreen) {
         let window = NSWindow(
-            contentRect: screenSize,
+            contentRect: screen.frame,
             styleMask: [.fullScreen, .fullSizeContentView, .titled, .closable, .resizable, .miniaturizable],
             backing: .buffered,
             defer: false,
@@ -34,7 +33,8 @@ class ScreenController: NSWindowController {
         window.collectionBehavior = [.canJoinAllSpaces, .fullScreenPrimary]
         
         self.init(window: window)
-
+        window.setFrame(screen.frame, display: true)
+        
         window.contentView = NSHostingView(rootView: rootView)
 //        self.contentViewController = NSHostingController(rootView: rootView)
         let clsname = NSClassFromString("NSTitlebarContainerView") as? NSObject.Type
@@ -48,6 +48,7 @@ class ScreenController: NSWindowController {
     func showFullScreen() {
         guard let window = self.window else { return }
         window.makeKeyAndOrderFront(nil)
+//        showWindow(self)
     }
 
     func closeFullScreen() {

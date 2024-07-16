@@ -91,6 +91,8 @@ struct HomeView: View {
         .onChange(of: timerOB.showFullScreen) { showFullScreen in
             if showFullScreen {
                 for screen in NSScreen.screens{
+//                    print("屏幕名称: \(screen.localizedName)")
+//                    print("屏幕边界: \(screen.frame)")
                     let screenView = ScreenView(isPresented: $timerOB.showFullScreen)
                         .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
 
